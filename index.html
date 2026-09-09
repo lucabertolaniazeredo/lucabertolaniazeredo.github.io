@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  body { margin: 0; background: #f5ead8; color: #201e1d; font-family: "Figtree", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #8c491a; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { color: #b2622d; }
+  ::selection { background: rgba(198,113,57,.3); }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid #c67139; outline-offset: 3px; }
+  .washed { filter: saturate(1.12) contrast(1.06) brightness(1.03); }
+</style>
+<script src="site-data.js"></script>
+</helmet>
+
+<div style="min-height:100vh;background:#f5ead8;color:#201e1d;font-family:'Figtree',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(245,234,216,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(32,30,29,.1)">
+    <div style="max-width:1120px;margin:0 auto;padding:14px 28px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px">
+      <a href="#home" onClick="{{ goHome }}" style="font-family:'Caprasimo',serif;font-size:19px;letter-spacing:-.015em;color:#201e1d;text-decoration:none;line-height:1.1;margin-right:auto">{{ person.name }}</a>
+      <nav style="display:flex;flex-wrap:wrap;gap:4px">
+        <sc-for list="{{ nav }}" as="item" hint-placeholder-count="9">
+          <a href="{{ item.href }}" onClick="{{ item.onClick }}" style="display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s;background:{{ item.bg }};color:{{ item.fg }}">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="display:flex;padding:3px;border-radius:999px;background:#ebddc5;gap:2px">
+        <button onClick="{{ setIt }}" style="border:0;cursor:pointer;font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 12px;border-radius:999px;background:{{ itBg }};color:{{ itFg }}">IT</button>
+        <button onClick="{{ setEn }}" style="border:0;cursor:pointer;font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 12px;border-radius:999px;background:{{ enBg }};color:{{ enFg }}">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="max-width:1120px;margin:0 auto;padding:0 28px 120px">
+
+    <sc-if value="{{ pHome }}" hint-placeholder-val="{{ true }}">
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px 56px;align-items:center;padding:80px 0 72px">
+        <div>
+          <p style="margin:0 0 20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8c491a">
+            <span>{{ t.role }}</span>
+            <span style="display:inline-flex;padding:2px 9px;border-radius:999px;background:#e1eecc;color:#3d472b;font-size:11px;letter-spacing:.04em;text-transform:none;font-weight:600">{{ person.pronouns }}</span>
+          </p>
+          <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(40px,6vw,68px);line-height:1.04;letter-spacing:-.02em;margin:0 0 28px;text-wrap:balance">{{ person.name }}</h1>
+          <p style="margin:0 0 32px;font-size:19px;line-height:1.65;max-width:56ch;color:#3a3632">{{ t.lede }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <a href="#ricerca" onClick="{{ goRicerca }}" style="display:inline-flex;align-items:center;padding:11px 22px;border-radius:999px;background:#c67139;color:#fff;font-family:'Caprasimo',serif;font-size:15px;text-decoration:none">{{ t.ctaResearch }}</a>
+            <a href="#progetti" onClick="{{ goProgetti }}" style="display:inline-flex;align-items:center;padding:11px 22px;border-radius:999px;background:transparent;border:1px solid rgba(32,30,29,.25);color:#201e1d;font-family:'Caprasimo',serif;font-size:15px;text-decoration:none">{{ t.ctaProjects }}</a>
+          </div>
+        </div>
+        <div style="position:relative;justify-self:end;width:100%;max-width:330px">
+          <div style="position:absolute;inset:-22px -18px auto auto;width:150px;height:150px;border-radius:999px;background:#e1eecc;display:{{ shapes }}"></div>
+          <div style="position:absolute;left:-26px;bottom:-20px;width:92px;height:92px;border-radius:999px;background:#ffe1d0;display:{{ shapes }}"></div>
+          <img src="img/ritratto.jpg" alt="Luca Bertolani Azeredo" style="position:relative;width:100%;aspect-ratio:1;object-fit:cover;object-position:52% 34%;border-radius:999px;box-shadow:0 12px 32px rgba(46,43,37,.22);filter:saturate(1.12) contrast(1.06) brightness(1.03)">
+        </div>
+      </section>
+
+      <section style="padding:8px 0 24px">
+        <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#645c50;margin:0 0 28px">{{ t.strands }}</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+          <sc-for list="{{ research }}" as="r" hint-placeholder-count="2">
+            <article style="background:#ebddc5;border-radius:28px;padding:30px 30px 34px">
+              <p style="margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#56633f">{{ r.kicker }}</p>
+              <h3 style="font-family:'Caprasimo',serif;font-weight:400;font-size:26px;line-height:1.15;letter-spacing:-.015em;margin:0 0 14px;text-wrap:pretty">{{ r.title }}</h3>
+              <p style="margin:0;color:#3a3632;line-height:1.65">{{ r.body }}</p>
+            </article>
+          </sc-for>
+        </div>
+      </section>
+
+      <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:44px 0 0">
+        <div style="border-top:1px solid rgba(32,30,29,.16);padding-top:20px">
+          <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#645c50">{{ t.latestTalk }}</p>
+          <p style="margin:0 0 6px;font-weight:600;line-height:1.4">{{ latestTalk.title }}</p>
+          <p style="margin:0;font-size:14px;color:#645c50">{{ latestTalk.place }} · {{ latestTalk.dateLabel }}</p>
+        </div>
+        <div style="border-top:1px solid rgba(32,30,29,.16);padding-top:20px">
+          <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#645c50">{{ t.latestPub }}</p>
+          <p style="margin:0 0 6px;font-weight:600;line-height:1.4">{{ latestPub.title }}</p>
+          <p style="margin:0;font-size:14px;color:#645c50">{{ latestPub.where }}</p>
+        </div>
+        <div style="border-top:1px solid rgba(32,30,29,.16);padding-top:20px">
+          <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#645c50">{{ t.basedIn }}</p>
+          <p style="margin:0 0 6px;font-weight:600;line-height:1.4">{{ t.location }}</p>
+          <p style="margin:0;font-size:14px"><a href="{{ mailto }}">{{ person.email }}</a></p>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pRicerca }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px">{{ t.navRicerca }}</h1>
+        <p style="margin:0 0 56px;max-width:60ch;font-size:18px;color:#3a3632">{{ t.researchIntro }}</p>
+        <sc-for list="{{ research }}" as="r">
+          <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start;padding-bottom:64px">
+            <div>
+              <p style="margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#56633f">{{ r.kicker }}</p>
+              <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:31px;line-height:1.12;letter-spacing:-.015em;margin:0 0 18px;text-wrap:pretty">{{ r.title }}</h2>
+              <p style="margin:0;color:#3a3632;font-size:17px;line-height:1.7">{{ r.body }}</p>
+            </div>
+            <sc-if value="{{ r.photo }}" hint-placeholder-val="{{ false }}">
+              <figure style="margin:0">
+                <img class="washed" data-photo="{{ r.photo }}" alt="" style="width:100%;border-radius:28px;box-shadow:0 3px 10px rgba(46,43,37,.16)">
+                <figcaption style="margin-top:10px;font-size:13px;color:#645c50">{{ r.caption }}</figcaption>
+              </figure>
+            </sc-if>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pPubblicazioni }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 44px">{{ t.navPubblicazioni }}</h1>
+        <sc-for list="{{ publications }}" as="p" hint-placeholder-count="11">
+          <article style="display:flex;flex-wrap:wrap;gap:14px 24px;padding:22px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <div style="flex:0 0 124px;display:flex;flex-direction:column;align-items:flex-start;gap:7px">
+              <div style="font-family:'Caprasimo',serif;font-size:18px;line-height:1.2">{{ p.year }}</div>
+              <div style="display:inline-flex;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:{{ p.tagBg }};color:{{ p.tagFg }}">{{ p.typeLabel }}</div>
+            </div>
+            <div style="flex:1 1 320px;min-width:0">
+              <h2 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:18px;line-height:1.4;letter-spacing:0;margin:0 0 6px;text-wrap:pretty">
+                <sc-if value="{{ p.url }}" hint-placeholder-val="{{ true }}">
+                  <a href="{{ p.url }}" target="_blank" rel="noopener" style="color:#201e1d;text-decoration:underline;text-decoration-color:rgba(198,113,57,.5)" style-hover="color:#8c491a;text-decoration-color:#c67139">{{ p.title }}</a>
+                </sc-if>
+                <sc-if value="{{ p.noUrl }}" hint-placeholder-val="{{ false }}">
+                  <span>{{ p.title }}</span>
+                </sc-if>
+              </h2>
+              <p style="margin:0;color:#645c50;font-size:15px;line-height:1.6">{{ p.where }}</p>
+              <sc-if value="{{ p.url }}" hint-placeholder-val="{{ false }}">
+                <p style="margin:8px 0 0;font-size:13px;color:#8c491a">{{ p.linkLabel }}</p>
+              </sc-if>
+            </div>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pConferenze }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 12px">{{ t.navConferenze }}</h1>
+        <p style="margin:0 0 44px;color:#645c50">{{ talksCount }}</p>
+        <sc-for list="{{ talks }}" as="k" hint-placeholder-count="10">
+          <article style="display:flex;flex-wrap:wrap;gap:20px 28px;padding:34px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <div style="flex:0 0 130px;font-size:14px;font-weight:600;color:#8c491a;padding-top:3px">{{ k.dateLabel }}</div>
+            <div style="flex:1 1 260px;min-width:0">
+              <h2 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:17px;line-height:1.4;letter-spacing:0;margin:0 0 5px;text-wrap:pretty">{{ k.title }}</h2>
+              <p style="margin:0;color:#645c50;font-size:15px;line-height:1.55">{{ k.event }} — {{ k.place }}</p>
+            </div>
+            <sc-if value="{{ k.thumb }}" hint-placeholder-val="{{ true }}">
+              <button onClick="{{ k.openSlides }}" style="display:block;flex:0 1 176px;position:relative;border:0;padding:0;cursor:pointer;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 3px 10px rgba(46,43,37,.18);aspect-ratio:16/9">
+                <img data-photo="{{ k.thumb }}" onError="{{ k.thumbError }}" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff">
+                <span style="position:absolute;inset:auto 0 0 0;padding:7px 10px;background:rgba(32,30,29,.82);color:#f5ead8;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase">{{ t.slide }} ⤢</span>
+              </button>
+            </sc-if>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pDidattica }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 44px">{{ t.navDidattica }}</h1>
+        <sc-for list="{{ teaching }}" as="c">
+          <article style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:start">
+            <div>
+              <p style="margin:0 0 12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8c491a">{{ c.dateLabel }}</p>
+              <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:31px;line-height:1.12;letter-spacing:-.015em;margin:0 0 14px;text-wrap:pretty">{{ c.title }}</h2>
+              <p style="margin:0;color:#3a3632;font-size:17px;line-height:1.7">{{ c.course }}</p>
+            </div>
+            <sc-if value="{{ c.photo }}" hint-placeholder-val="{{ false }}">
+              <figure style="margin:0">
+                <img class="washed" data-photo="{{ c.photo }}" alt="" style="width:100%;border-radius:28px;box-shadow:0 3px 10px rgba(46,43,37,.16)">
+              </figure>
+            </sc-if>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pProgetti }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px">{{ t.navProgetti }}</h1>
+        <p style="margin:0 0 44px;max-width:58ch;font-size:18px;color:#3a3632">{{ t.projectsIntro }}</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+          <sc-for list="{{ projects }}" as="pr" hint-placeholder-count="1">
+            <a href="{{ pr.url }}" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:#201e1d;background:#ebddc5;border-radius:28px;padding:32px">
+              <p style="margin:0 0 10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#56633f">{{ pr.kind }}</p>
+              <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:29px;line-height:1.12;letter-spacing:-.015em;margin:0 0 14px">{{ pr.name }}</h2>
+              <p style="margin:0 0 20px;color:#3a3632;line-height:1.65">{{ pr.body }}</p>
+              <span style="display:inline-flex;align-items:center;gap:8px;font-family:'Caprasimo',serif;font-size:15px;color:#8c491a">{{ pr.host }} →</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pNote }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0;max-width:70ch">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 44px">{{ t.navNote }}</h1>
+        <sc-for list="{{ notes }}" as="n" hint-placeholder-count="1">
+          <article style="padding:26px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#8c491a">{{ n.dateLabel }}</p>
+            <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:27px;line-height:1.15;letter-spacing:-.015em;margin:0 0 12px">{{ n.title }}</h2>
+            <p style="margin:0;color:#3a3632;font-size:17px;line-height:1.75">{{ n.body }}</p>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pCv }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:44px;align-items:start;margin-bottom:20px">
+          <div>
+            <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 18px">{{ t.navCv }}</h1>
+            <p style="margin:0 0 6px;color:#3a3632;font-size:17px">{{ t.cvIntro }}</p>
+          </div>
+          <figure style="margin:0">
+            <img class="washed" src="img/tesi-ssm.jpg" alt="" style="width:100%;max-height:340px;object-fit:cover;object-position:50% 32%;border-radius:28px">
+            <figcaption style="margin-top:10px;font-size:13px;color:#645c50">{{ t.thesisCaption }}</figcaption>
+          </figure>
+        </div>
+
+        <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#645c50;margin:44px 0 18px">{{ t.education }}</h2>
+        <sc-for list="{{ education }}" as="e" hint-placeholder-count="7">
+          <article style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <div style="flex:0 0 130px;font-size:14px;font-weight:600;color:#8c491a;padding-top:3px">{{ e.period }}</div>
+            <div style="flex:1 1 300px;min-width:0">
+              <h3 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:17px;line-height:1.35;letter-spacing:0;margin:0 0 3px">{{ e.title }}</h3>
+              <p style="margin:0 0 6px;font-size:15px;color:#56633f;font-weight:600">{{ e.place }}</p>
+              <p style="margin:0;color:#645c50;font-size:15px;line-height:1.6">{{ e.detail }}</p>
+            </div>
+          </article>
+        </sc-for>
+
+        <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#645c50;margin:44px 0 18px">{{ t.experience }}</h2>
+        <sc-for list="{{ experience }}" as="x" hint-placeholder-count="2">
+          <article style="display:flex;flex-wrap:wrap;gap:12px 24px;padding:20px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <div style="flex:0 0 130px;font-size:14px;font-weight:600;color:#8c491a;padding-top:3px">{{ x.period }}</div>
+            <div style="flex:1 1 300px;min-width:0">
+              <h3 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:17px;line-height:1.35;letter-spacing:0;margin:0 0 3px">{{ x.title }}</h3>
+              <p style="margin:0 0 6px;font-size:15px;color:#56633f;font-weight:600">{{ x.place }}</p>
+              <p style="margin:0;color:#645c50;font-size:15px;line-height:1.6">{{ x.detail }}</p>
+            </div>
+          </article>
+        </sc-for>
+
+        <h2 style="font-family:'Caprasimo',serif;font-weight:400;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#645c50;margin:44px 0 18px">{{ t.grants }}</h2>
+        <sc-for list="{{ grants }}" as="g" hint-placeholder-count="5">
+          <article style="display:flex;flex-wrap:wrap;gap:10px 24px;padding:14px 0;border-top:1px solid rgba(32,30,29,.14)">
+            <div style="flex:0 0 130px;font-size:14px;font-weight:600;color:#8c491a">{{ g.year }}</div>
+            <div style="flex:1 1 300px;min-width:0;font-size:16px">{{ g.body }}</div>
+          </article>
+        </sc-for>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{ pContatti }}" hint-placeholder-val="{{ false }}">
+      <section style="padding:64px 0 0;max-width:62ch">
+        <h1 style="font-family:'Caprasimo',serif;font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px">{{ t.navContatti }}</h1>
+        <p style="margin:0 0 40px;font-size:18px;color:#3a3632">{{ t.contactIntro }}</p>
+        <div style="display:grid;gap:2px">
+          <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4">
+            <div style="display:flex;flex-wrap:wrap;gap:6px 24px;padding:16px 0;border-top:1px solid rgba(32,30,29,.14)">
+              <div style="flex:0 0 130px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#645c50;padding-top:3px">{{ c.label }}</div>
+              <div style="flex:1 1 240px;min-width:0;font-size:17px;word-break:break-word">
+                <sc-if value="{{ c.href }}" hint-placeholder-val="{{ true }}">
+                  <a href="{{ c.href }}" target="{{ c.target }}" rel="noopener">{{ c.value }}</a>
+                </sc-if>
+                <sc-if value="{{ c.plain }}" hint-placeholder-val="{{ false }}">
+                  <span>{{ c.value }}</span>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </sc-if>
+
+  </main>
+
+  <sc-if value="{{ slides }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeSlides }}" style="position:fixed;inset:0;z-index:60;background:rgba(32,30,29,.62);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:32px">
+      <div style="width:min(1080px,100%);height:min(780px,100%);background:#f5ead8;border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 50px rgba(32,30,29,.4)">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:16px">
+          <div style="min-width:0;flex:1 1 320px">
+            <h3 style="font-family:'Caprasimo',serif;font-weight:400;font-size:21px;line-height:1.25;margin:0 0 5px;text-wrap:pretty">{{ slidesTitle }}</h3>
+            <p style="margin:0;font-size:14px;color:#645c50">{{ slidesMeta }}</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-shrink:0;margin-left:auto">
+            <a href="{{ slides }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:9px 17px;border-radius:999px;border:1px solid rgba(32,30,29,.25);color:#201e1d;font-size:14px;font-weight:600;text-decoration:none">{{ t.openApart }}</a>
+            <button onClick="{{ closeSlides }}" style="border:0;cursor:pointer;padding:9px 19px;border-radius:999px;background:#c67139;color:#fff;font-family:'Figtree',sans-serif;font-size:14px;font-weight:700">{{ t.close }}</button>
+          </div>
+        </div>
+        <iframe src="{{ slides }}" title="slides" style="flex:1;width:100%;border:0;border-radius:20px;background:#fff"></iframe>
+      </div>
+    </div>
+  </sc-if>
+
+  <footer style="border-top:1px solid rgba(32,30,29,.14);background:#ebddc5">
+    <div style="max-width:1120px;margin:0 auto;padding:36px 28px;display:flex;flex-wrap:wrap;gap:16px 40px;align-items:baseline;justify-content:space-between">
+      <p style="margin:0;font-family:'Caprasimo',serif;font-size:16px">{{ person.name }}</p>
+      <p style="margin:0;font-size:14px;color:#645c50">{{ t.location }} · <a href="{{ mailto }}">{{ person.email }}</a></p>
+      <p style="margin:0;font-size:14px;color:#645c50">{{ t.alsoOn }} <a href="https://italians-in-ireland.github.io/" target="_blank" rel="noopener">Italians in Ireland ↗</a></p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;it&quot;,&quot;en&quot;],&quot;default&quot;:&quot;it&quot;,&quot;tsType&quot;:&quot;\&quot;it\&quot; | \&quot;en\&quot;&quot;,&quot;section&quot;:&quot;Comportamento&quot;},&quot;showAccentShapes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;}}">
+const PAGES = ["home","ricerca","pubblicazioni","conferenze","didattica","progetti","note","cv","contatti"];
+
+const STR = {
+  it: {
+    navHome:"Home", navRicerca:"Ricerca", navPubblicazioni:"Pubblicazioni", navConferenze:"Conferenze",
+    navDidattica:"Didattica", navProgetti:"Progetti", navNote:"Note di ricerca", navCv:"CV", navContatti:"Contatti",
+    ctaResearch:"La ricerca", ctaProjects:"I progetti",
+    strands:"Due filoni di ricerca",
+    latestTalk:"Ultimo intervento", latestPub:"Ultima pubblicazione", basedIn:"Base",
+    researchIntro:"Due percorsi paralleli: la violenza politica organizzata nell'Irlanda pre-bellica e la presenza italiana nell'isola lungo un secolo e mezzo.",
+    projectsIntro:"Ricerche che vivono anche fuori dalla pagina scritta.",
+    contactIntro:"Per collaborazioni, inviti a seminari o richieste di lettura, scrivere all'indirizzo qui sotto.",
+    cvIntro:"Formazione, ricerca e finanziamenti. Il quadro completo di pubblicazioni e interventi sta nelle rispettive pagine.",
+    thesisCaption:"Scuola Superiore Meridionale, Napoli — la tesi di dottorato.",
+    education:"Formazione", experience:"Esperienza di ricerca", grants:"Borse e finanziamenti",
+    talksSuffix:"interventi dal 2018", openApart:"Apri a parte ↗", close:"Chiudi", alsoOn:"Vai anche a",
+    types:{chapter:"Capitolo", article:"Articolo", review:"Recensione", forthcoming:"In uscita"},
+    months:["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"],
+    cEmail:"Email", cOrcid:"ORCID", cLinkedin:"LinkedIn", cPlace:"Sede", cPronouns:"Pronomi", slide:"Slide"
+  },
+  en: {
+    navHome:"Home", navRicerca:"Research", navPubblicazioni:"Publications", navConferenze:"Talks",
+    navDidattica:"Teaching", navProgetti:"Projects", navNote:"Research notes", navCv:"CV", navContatti:"Contact",
+    ctaResearch:"The research", ctaProjects:"The projects",
+    strands:"Two strands of research",
+    latestTalk:"Latest talk", latestPub:"Latest publication", basedIn:"Based in",
+    researchIntro:"Two parallel tracks: organised political violence in pre-war Ireland, and the Italian presence on the island across a century and a half.",
+    projectsIntro:"Research that also lives outside the written page.",
+    contactIntro:"For collaborations, seminar invitations or reading requests, write to the address below.",
+    cvIntro:"Education, research and funding. The full record of publications and talks sits on their own pages.",
+    thesisCaption:"Scuola Superiore Meridionale, Naples — the doctoral thesis.",
+    education:"Education", experience:"Research experience", grants:"Scholarships and grants",
+    talksSuffix:"talks since 2018", openApart:"Open separately ↗", close:"Close", alsoOn:"See also",
+    types:{chapter:"Chapter", article:"Article", review:"Review", forthcoming:"Forthcoming"},
+    months:["January","February","March","April","May","June","July","August","September","October","November","December"],
+    cEmail:"Email", cOrcid:"ORCID", cLinkedin:"LinkedIn", cPlace:"Based in", cPronouns:"Pronouns", slide:"Slides"
+  }
+};
+
+const HAS = ["2022-05-24-manuale-giovane-terrorista-pavia","2022-10-29-handbook-young-terrorist-eshsi","2023-03-03-manly-physique-carlow-ihsa","2023-03-21-illegalities-not-crimes-ssm-workshop","2023-05-30-manly-physique-cambridge","2023-05-31-balloon-bullet-aedei-valencia","2023-08-24-na-fianna-eireann-efacis-belfast","2023-09-14-italian-labour-unions-ilhs","2023-09-23-children-empire-efacis-prague","2024-04-02-doctoral-workshop-ssm","2024-04-17-things-stronger-nancy","2024-06-20-enniskillen-horse-acis-mic","2024-12-06-cittadini-virili-prin-roma","2024-12-10-shaping-youth-conflict-ceph","2025-05-08-framing-military-resistance-efacis-turku","2025-06-17-phd-workshop-ssm","2025-09-12-dolce-vita-ice-cream-maynooth","2025-09-19-rebels-under-union-jack-efacis-prague","2025-11-17-enniskillen-horse-qub-seminar","2025-11-28-prin-seminar-uk-crisis-paramilitarism","2026-03-27-migrants-divided-land-sofeir-strasbourg","2026-04-23-pedagogy-violence-jagiellonian-krakow","2026-06-19-poco-di-gelato-asmi-cambridge"];
+
+const TAGS = {
+  chapter:    { bg:"#e1eecc", fg:"#3d472b" },
+  article:    { bg:"#ffe1d0", fg:"#643312" },
+  review:     { bg:"#eee7db", fg:"#474238" },
+  forthcoming:{ bg:"#c67139", fg:"#fff2eb" }
+};
+
+class Component extends DCLogic {
+  state = { lang: "it", page: "home", slides: null, slidesTitle: "", slidesMeta: "" };
+
+  componentDidMount() {
+    let lang = this.props.defaultLang === "en" ? "en" : "it";
+    try { const s = localStorage.getItem("lba-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
+    this.setState({ lang, page: this.pageFromHash() });
+    this._onHash = () => this.setState({ page: this.pageFromHash(), slides: null });
+    window.addEventListener("hashchange", this._onHash);
+    this._onKey = (ev) => { if (ev.key === "Escape" && this.state.slides) this.setState({ slides: null }); };
+    window.addEventListener("keydown", this._onKey);
+    this.hydratePhotos();
+  }
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this._onHash);
+    window.removeEventListener("keydown", this._onKey);
+  }
+
+  componentDidUpdate() { this.hydratePhotos(); }
+  hydratePhotos() {
+    document.querySelectorAll("img[data-photo]").forEach((el) => {
+      const src = el.getAttribute("data-photo");
+      if (src && !/\{\{/.test(src) && el.getAttribute("src") !== src) el.setAttribute("src", src);
+    });
+  }
+
+  pageFromHash() {
+    const h = (window.location.hash || "").replace("#", "");
+    return PAGES.indexOf(h) >= 0 ? h : "home";
+  }
+  go(page) {
+    return (ev) => {
+      if (ev) ev.preventDefault();
+      try { window.location.hash = page; } catch (e) {}
+      this.setState({ page, slides: null });
+      window.scrollTo(0, 0);
+    };
+  }
+  setLang(lang) {
+    return () => {
+      try { localStorage.setItem("lba-lang", lang); } catch (e) {}
+      this.setState({ lang });
+    };
+  }
+
+  fmtDate(iso, t, short) {
+    const [y, m, d] = String(iso).split("-").map(Number);
+    if (!m) return String(iso);
+    const month = t.months[m - 1];
+    if (short) return month.charAt(0).toUpperCase() + month.slice(1) + " " + y;
+    return d + " " + month + " " + y;
+  }
+
+  renderVals() {
+    const D = (typeof window !== "undefined" && window.SITE_DATA) || null;
+    if (!D) return {};
+    const lang = this.state.lang;
+    const it = lang === "it";
+    const t = STR[lang];
+    const L = (o, k) => (it ? o[k + "_it"] : (o[k + "_en"] || o[k + "_it"]));
+    const p = D.person;
+
+    const nav = PAGES.map((id) => {
+      const active = this.state.page === id;
+      const key = "nav" + id.charAt(0).toUpperCase() + id.slice(1);
+      return {
+        id, href: "#" + id, label: t[key], onClick: this.go(id),
+        bg: active ? "#c67139" : "transparent",
+        fg: active ? "#fff8f2" : "#474238"
+      };
+    });
+
+    const talks = D.talks.map((k) => ({
+      ...k,
+      dateLabel: this.fmtDate(k.date, t, true),
+      thumb: (k.pdf && HAS.indexOf(k.pdf.split("/").pop().replace(/\.pdf$/, "")) >= 0) ? "img/slides/" + k.pdf.split("/").pop().replace(/\.pdf$/, ".png") : "",
+      thumbError: (ev) => { const a = ev.target.closest("a,button"); if (a) a.style.display = "none"; },
+      openSlides: () => this.setState({ slides: k.pdf, slidesTitle: k.title, slidesMeta: k.event + " — " + k.place })
+    }));
+    const publications = D.publications.map((x) => ({
+      ...x, typeLabel: t.types[x.type] || x.type,
+      noUrl: !x.url,
+      linkLabel: x.url ? (/doi\.org/.test(x.url)
+        ? x.url.replace(/^https?:\/\/(doi\.org\/)?/, "doi: ")
+        : String(x.url).replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "").split("/").slice(0, 2).join("/")) : "",
+      tagBg: (TAGS[x.type] || TAGS.review).bg, tagFg: (TAGS[x.type] || TAGS.review).fg
+    }));
+
+    const link = (label, value, url) => (url && /^https?:/.test(url))
+      ? { label, value: value || url.replace(/^https?:\/\//, ""), href: url, target: "_blank" }
+      : { label, value: value || "—", plain: true };
+
+    const contacts = [
+      { label: t.cEmail, value: p.email, href: "mailto:" + p.email, target: "_self" },
+      link(t.cOrcid, p.orcid, p.orcidUrl),
+      link(t.cLinkedin, p.linkedin && p.linkedin.replace(/^https?:\/\//, ""), p.linkedin),
+      { label: t.cPlace, value: L(p, "location"), plain: true },
+      p.pronouns ? { label: t.cPronouns, value: p.pronouns, plain: true } : null
+    ].filter(Boolean);
+
+    return {
+      t: { ...t, role: L(p, "role"), lede: L(p, "lede"), location: L(p, "location") },
+      person: p, nav, talks, publications, contacts,
+      mailto: "mailto:" + p.email,
+      lang,
+      itBg: it ? "#201e1d" : "transparent", itFg: it ? "#f5ead8" : "#645c50",
+      enBg: it ? "transparent" : "#201e1d", enFg: it ? "#645c50" : "#f5ead8",
+      pHome: this.state.page === "home",
+      pRicerca: this.state.page === "ricerca",
+      pPubblicazioni: this.state.page === "pubblicazioni",
+      pConferenze: this.state.page === "conferenze",
+      pDidattica: this.state.page === "didattica",
+      pProgetti: this.state.page === "progetti",
+      pNote: this.state.page === "note",
+      pCv: this.state.page === "cv",
+      pContatti: this.state.page === "contatti",
+      shapes: (this.props.showAccentShapes ?? true) ? "block" : "none",
+      goHome: this.go("home"), goRicerca: this.go("ricerca"), goProgetti: this.go("progetti"),
+      setIt: this.setLang("it"), setEn: this.setLang("en"),
+      research: D.research.map((r) => ({
+        kicker: L(r, "kicker"), title: L(r, "title"), body: L(r, "body"),
+        photo: r.photo, caption: L(r, "caption")
+      })),
+      projects: D.projects.map((x) => ({
+        name: x.name, url: x.url, kind: L(x, "kind"), body: L(x, "body"),
+        host: String(x.url).replace(/^https?:\/\//, "").replace(/\/$/, "")
+      })),
+      teaching: D.teaching.map((c) => ({
+        title: L(c, "title"), course: L(c, "course"), photo: c.photo,
+        dateLabel: this.fmtDate(c.date, t, false)
+      })),
+      notes: D.notes.map((n) => ({
+        title: L(n, "title"), body: L(n, "body"), dateLabel: this.fmtDate(n.date, t, false)
+      })),
+      education: D.cv.education.map((e) => ({ period: e.period, place: e.place, title: L(e, "title"), detail: L(e, "detail") })),
+      experience: D.cv.experience.map((e) => ({ period: e.period, place: e.place, title: L(e, "title"), detail: L(e, "detail") })),
+      grants: D.cv.grants.map((g) => ({ year: g.year, body: L(g, "body") })),
+      slides: this.state.slides,
+      slidesTitle: this.state.slidesTitle,
+      slidesMeta: this.state.slidesMeta,
+      closeSlides: () => this.setState({ slides: null }),
+      talksCount: D.talks.length + " " + t.talksSuffix,
+      latestTalk: talks[0], latestPub: publications[0]
+    };
+  }
+}
+</script>
+</body>
+</html>
