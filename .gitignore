@@ -1,0 +1,7 @@
+# copie di sicurezza create durante le modifiche — non vanno pubblicate
+*.bak
+# file temporaneo prodotto dagli script in tools/
+tools/site-data.json
+
+# cartella di scarto: file che vanno cancellati a mano
+_to_delete/

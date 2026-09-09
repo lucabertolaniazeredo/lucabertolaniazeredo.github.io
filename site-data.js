@@ -15,9 +15,26 @@ window.SITE_DATA = {
     lede_en: "PhD in Global History and Governance (2026, Scuola Superiore Meridionale, Naples). I work on modern and contemporary Ireland, across political, social and cultural history. My current research studies Italians in Ireland from the nineteenth century to the present.",
     pronouns: "he/him",
     email: "luca.bertolani.azeredo@gmail.com",
-    orcid: "DA INSERIRE",              // es. "0000-0000-0000-0000"
-    orcidUrl: "",                      // es. "https://orcid.org/0000-0000-0000-0000"
-    linkedin: "DA INSERIRE",           // es. "https://www.linkedin.com/in/luca-bertolani-azeredo"
+    orcid: "0009-0002-3315-8544",
+    orcidUrl: "https://orcid.org/0009-0002-3315-8544",
+    linkedin: "",                      // incolla qui l'URL completo del profilo, es. "https://www.linkedin.com/in/..."
+
+    /* CV scaricabile: metti il PDF in cv/ e lascia questo percorso, oppure svuota
+       la stringa per far sparire il pulsante dalla pagina CV. */
+    cvPdf: "cv/luca-bertolani-azeredo-cv.pdf",
+
+    /* Altri profili mostrati nella pagina Contatti. Per aggiungerne uno copia una
+       riga: label_it / label_en sono l'etichetta, value il testo mostrato, url il link.
+       Le righe con url vuoto non vengono mostrate. */
+    links: [
+      { label_it: "Google Scholar", label_en: "Google Scholar", value: "", url: "" },
+      { label_it: "Academia.edu",   label_en: "Academia.edu",   value: "", url: "" },
+      { label_it: "Bluesky",        label_en: "Bluesky",        value: "", url: "" },
+      { label_it: "Irish Historians", label_en: "Irish Historians",
+        value: "irishhistorians.ie/members/lucaba", url: "https://irishhistorians.ie/members/lucaba/" },
+      { label_it: "Italians in Ireland", label_en: "Italians in Ireland",
+        value: "italians-in-ireland.github.io", url: "https://italians-in-ireland.github.io/" }
+    ],
     location_it: "Padova, Italia",
     location_en: "Padua, Italy",
     portrait: "img/ritratto.jpg"
@@ -98,30 +115,30 @@ window.SITE_DATA = {
   /* Conferenze e talk — dal più recente */
   talks: [
     { date: "2026-06-19", pdf: "presentations/2026-06-19-poco-di-gelato-asmi-cambridge.pdf", title: "“Un poco di gelato, if I may”. A New History of Italian Immigration to Ireland (1880s-1926)", event: "Association for the Study of Modern Italy, Postgraduate Summer School 2026", place: "Department of Criminology, Cambridge" },
-    { date: "2026-04-23", pdf: "presentations/2026-04-23-pedagogy-violence-jagiellonian-krakow.pdf", title: "The Pedagogy of Violence: Youth, Discipline, and Paramilitary Culture in Early 20th Century Ireland", event: "Comparative Irish Studies from Ancient Times to the Present, Jagiellonian University", place: "Cracovia" },
+    { date: "2026-04-23", pdf: "presentations/2026-04-23-pedagogy-violence-jagiellonian-krakow.pdf", title: "The Pedagogy of Violence: Youth, Discipline, and Paramilitary Culture in Early 20th Century Ireland", event: "Comparative Irish Studies from Ancient Times to the Present, Jagiellonian University", place: "Cracovia", place_en: "Kraków" },
     { date: "2026-03-27", pdf: "presentations/2026-03-27-migrants-divided-land-sofeir-strasbourg.pdf", title: "Migrants in a Divided Land: Italian Communities and the Making of Modern Ireland", event: "Colloque SOFEIR “Irish Exceptionalism”", place: "Université de Strasbourg" },
-    { date: "2025-11-28", pdf: "presentations/2025-11-28-prin-seminar-uk-crisis-paramilitarism.pdf", title: "“I Fought the Law, and I Won”. The United Kingdom and the Crisis of Paramilitarism, 1900-1916", event: "Engaged Citizens. Seminar PRIN 2022", place: "Università di Napoli Federico II" },
+    { date: "2025-11-28", pdf: "presentations/2025-11-28-prin-seminar-uk-crisis-paramilitarism.pdf", title: "“I Fought the Law, and I Won”. The United Kingdom and the Crisis of Paramilitarism, 1900-1916", event: "Engaged Citizens. Seminar PRIN 2022", place: "Università di Napoli Federico II", place_en: "University of Naples Federico II" },
     { date: "2025-11-17", pdf: "presentations/2025-11-17-enniskillen-horse-qub-seminar.pdf", title: "The Enniskillen Horse: Illegality, Legitimacy and the Birth of Irish Paramilitarism", event: "Irish Studies Seminars, Autumn 2025", place: "Queen’s University Belfast" },
-    { date: "2025-09-19", pdf: "presentations/2025-09-19-rebels-under-union-jack-efacis-prague.pdf", title: "“Rebels under the Union Jack”. Reassessing Loyalist Radicalisation in the Home Rule Crisis", event: "7th EFACIS International Postgraduate Conference", place: "Charles University, Praga" },
+    { date: "2025-09-19", pdf: "presentations/2025-09-19-rebels-under-union-jack-efacis-prague.pdf", title: "“Rebels under the Union Jack”. Reassessing Loyalist Radicalisation in the Home Rule Crisis", event: "7th EFACIS International Postgraduate Conference", place: "Charles University, Praga", place_en: "Charles University, Prague" },
     { date: "2025-09-12", pdf: "presentations/2025-09-12-dolce-vita-ice-cream-maynooth.pdf", title: "La Dolce Vita? Story of an Italian Ice-Cream Parlour in Enniskillen", event: "35th Irish Conference of Historians", place: "Maynooth University" },
-    { date: "2025-06-17", pdf: "presentations/2025-06-17-phd-workshop-ssm.pdf", title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "PhD Workshop 2024-25, discussant Brian Hughes", place: "Scuola Superiore Meridionale, Napoli" },
+    { date: "2025-06-17", pdf: "presentations/2025-06-17-phd-workshop-ssm.pdf", title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "PhD Workshop 2024-25, discussant Brian Hughes", place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples" },
     { date: "2025-05-08", pdf: "presentations/2025-05-08-framing-military-resistance-efacis-turku.pdf", title: "Framing Military Resistance: The Press and the Irish Home Rule Crisis", event: "EFACIS Conference 2025", place: "Åbo / Turku" },
     { date: "2024-12-10", pdf: "presentations/2024-12-10-shaping-youth-conflict-ceph.pdf", title: "Shaping the Youth of Conflict: Religious Divides and the Foundations of Irish Paramilitary Organizations", event: "Religion, Division and Development in Ireland. 3rd CEPH Irish Research Initiative Workshop", place: "CEPH" },
-    { date: "2024-12-06", pdf: "presentations/2024-12-06-cittadini-virili-prin-roma.pdf", title: "Cittadini virili, armati, e patriottici? Il caso degli Young Citizen Volunteers, Belfast 1912-16", event: "Percezioni e pratiche di (in)sicurezza in Italia. PRIN 2022", place: "Università di Roma Tor Vergata" },
+    { date: "2024-12-06", pdf: "presentations/2024-12-06-cittadini-virili-prin-roma.pdf", title: "Cittadini virili, armati, e patriottici? Il caso degli Young Citizen Volunteers, Belfast 1912-16", event: "Percezioni e pratiche di (in)sicurezza in Italia. PRIN 2022", place: "Università di Roma Tor Vergata", place_en: "University of Rome Tor Vergata" },
     { date: "2024-06-20", pdf: "presentations/2024-06-20-enniskillen-horse-acis-mic.pdf", title: "“No Man shall ride armed within the Realm”: The Enniskillen Horse and the Irish Home Rule Crisis", event: "ACIS MIC 2024 Conference", place: "Mary Immaculate College, Limerick" },
     { date: "2024-06-05", pdf: "presentations/2024-06-05-enniskillen-horse-galway.pdf", title: "“It may be tomfoolery – but is it legal?” The Enniskillen Horse and the Irish Home Rule Crisis (1912-14)", event: "Galway Conference of Irish Studies 2024: Slow Violence X Irish Studies", place: "University of Galway" },
     { date: "2024-04-17", pdf: "presentations/2024-04-17-things-stronger-nancy.pdf", title: "“There are things stronger than Parliamentary majorities”: For a Political Use of Violence in Ireland, 1909-1916", event: "Radicalism, Radicalisation, and Deradicalisation in Ireland", place: "Université de Lorraine, Nancy" },
-    { date: "2024-04-02", pdf: "presentations/2024-04-02-doctoral-workshop-ssm.pdf", title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Doctoral Workshop, discussants Richard English e Daniel Joseph Macarthur-Seal", place: "Scuola Superiore Meridionale, Napoli" },
-    { date: "2023-09-23", pdf: "presentations/2023-09-23-children-empire-efacis-prague.pdf", title: "The Children of the Empire. Youth Organisations in British Ireland between Imperialism and Anti-Colonialism, 1909-1916", event: "6th EFACIS International Postgraduate Conference", place: "Charles University, Praga" },
-    { date: "2023-09-14", pdf: "presentations/2023-09-14-italian-labour-unions-ilhs.pdf", title: "Italian Labour & Unions in the ’70s – a Decade of Troubles", event: "Irish Labour History Society 2nd International Conference", place: "Liberty Hall, Dublino" },
+    { date: "2024-04-02", pdf: "presentations/2024-04-02-doctoral-workshop-ssm.pdf", title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Doctoral Workshop, discussants Richard English e Daniel Joseph Macarthur-Seal", place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples" },
+    { date: "2023-09-23", pdf: "presentations/2023-09-23-children-empire-efacis-prague.pdf", title: "The Children of the Empire. Youth Organisations in British Ireland between Imperialism and Anti-Colonialism, 1909-1916", event: "6th EFACIS International Postgraduate Conference", place: "Charles University, Praga", place_en: "Charles University, Prague" },
+    { date: "2023-09-14", pdf: "presentations/2023-09-14-italian-labour-unions-ilhs.pdf", title: "Italian Labour & Unions in the ’70s – a Decade of Troubles", event: "Irish Labour History Society 2nd International Conference", place: "Liberty Hall, Dublino", place_en: "Liberty Hall, Dublin" },
     { date: "2023-08-24", pdf: "presentations/2023-08-24-na-fianna-eireann-efacis-belfast.pdf", title: "Na Fianna Éireann and the Young Citizen Volunteers", event: "EFACIS Conference 2023", place: "Queen’s University Belfast" },
     { date: "2023-05-31", pdf: "presentations/2023-05-31-balloon-bullet-aedei-valencia.pdf", title: "The Balloon and the Bullet. Children and Young People in Irish Early Paramilitarism", event: "21st International AEDEI Conference", place: "Universitat de València" },
     { date: "2023-05-30", pdf: "presentations/2023-05-30-manly-physique-cambridge.pdf", title: "Manly Physique, Attractive Uniforms, and Drill Manoeuvres: Kids and Boys Playing with War in Pre-War Ireland", event: "Gender and Sexuality History Workshop, Easter 2023", place: "University of Cambridge" },
-    { date: "2023-03-21", pdf: "presentations/2023-03-21-illegalities-not-crimes-ssm-workshop.pdf", title: "“There are illegalities that are not crimes”. An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Global History and Governance – Research Workshop 2022-2023", place: "Scuola Superiore Meridionale, Napoli" },
+    { date: "2023-03-21", pdf: "presentations/2023-03-21-illegalities-not-crimes-ssm-workshop.pdf", title: "“There are illegalities that are not crimes”. An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Global History and Governance – Research Workshop 2022-2023", place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples" },
     { date: "2023-03-03", pdf: "presentations/2023-03-03-manly-physique-carlow-ihsa.pdf", title: "Manly Physique, Attractive Uniforms, and Drill Manoeuvres. Two Case Studies in Pre-War Ireland", event: "Irish History Students’ Association 74th Annual Conference", place: "Carlow College" },
     { date: "2022-10-29", pdf: "presentations/2022-10-29-handbook-young-terrorist-eshsi.pdf", title: "The Handbook of the Young Terrorist. Na Fianna Éireann and Irish Paramilitarism", event: "Economic and Social History Society of Ireland Conference", place: "Maynooth University" },
-    { date: "2022-05-24", pdf: "presentations/2022-05-24-manuale-giovane-terrorista-pavia.pdf", title: "Il manuale del giovane terrorista. Na Fianna Éireann e il paramilitarismo irlandese", event: "Student Conference 2022 — Con quale autorità?", place: "Università degli Studi di Pavia" },
-    { date: "2018-11-08", pdf: "presentations/2018-11-08-influenza-spagnola-padova.pdf", title: "1918 – L’influenza Spagnola. Riflessione e discussione a 100 anni dalla più grande epidemia della storia", event: "Simposio Permanente della Storia", place: "Università degli Studi di Padova" }
+    { date: "2022-05-24", pdf: "presentations/2022-05-24-manuale-giovane-terrorista-pavia.pdf", title: "Il manuale del giovane terrorista. Na Fianna Éireann e il paramilitarismo irlandese", event: "Student Conference 2022 — Con quale autorità?", place: "Università degli Studi di Pavia", place_en: "University of Pavia" },
+    { date: "2018-11-08", pdf: "presentations/2018-11-08-influenza-spagnola-padova.pdf", title: "1918 – L’influenza Spagnola. Riflessione e discussione a 100 anni dalla più grande epidemia della storia", event: "Simposio Permanente della Storia", place: "Università degli Studi di Padova", place_en: "University of Padua" }
   ],
 
   /* Didattica */
@@ -151,13 +168,13 @@ window.SITE_DATA = {
   cv: {
     education: [
       { period: "2021–2026", title_it: "Dottorato in Global History and Governance (Doctor Europaeus)", title_en: "PhD in Global History and Governance (Doctor Europaeus)",
-        place: "Scuola Superiore Meridionale, Napoli",
+        place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples",
         detail_it: "Tesi: «There are illegalities that are not crimes». An investigation into political violence and paramilitary bodies in Ireland before the Great War. Relatore: Teodoro Tagliaferri. Revisori esterni: Martin O’Donoghue (Max Planck Institute), Edward Burke (University College Dublin). Commissione: Teodoro Tagliaferri, Matteo Millan (Padova), Eugenio F. Biagini (Cambridge). Discussa il 9 febbraio 2026, eccellente con lode.",
         detail_en: "Dissertation: «There are illegalities that are not crimes». An investigation into political violence and paramilitary bodies in Ireland before the Great War. Supervisor: Teodoro Tagliaferri. External reviewers: Martin O’Donoghue (Max Planck Institute), Edward Burke (University College Dublin). Jury: Teodoro Tagliaferri, Matteo Millan (Padua), Eugenio F. Biagini (Cambridge). Defended 9 February 2026, excellent with honours." },
       { period: "2024", title_it: "Visiting Research Fellow", title_en: "Visiting Research Fellow", place: "Trinity College Dublin", detail_it: "Aprile – ottobre 2024.", detail_en: "April – October 2024." },
       { period: "2023", title_it: "Visiting Student", title_en: "Visiting Student", place: "University College Cork", detail_it: "Maggio – ottobre 2023. Supervisore: John Borgonovo.", detail_en: "May – October 2023. Supervisor: John Borgonovo." },
       { period: "2022–2023", title_it: "Visiting Student", title_en: "Visiting Student", place: "Queen’s University Belfast", detail_it: "Settembre 2022 – febbraio 2023. Supervisori: Richard English e Fearghal McGarry.", detail_en: "September 2022 – February 2023. Supervisors: Richard English and Fearghal McGarry." },
-      { period: "2017–2020", title_it: "Laurea magistrale in Scienze storiche", title_en: "MA in Historical Science", place: "Università degli Studi di Padova",
+      { period: "2017–2020", title_it: "Laurea magistrale in Scienze storiche", title_en: "MA in Historical Science", place: "Università degli Studi di Padova", place_en: "University of Padua",
         detail_it: "110 e lode. Tesi: The Irish Labour Party. From Its Origins to 1938. Relatori: Matteo Millan e Diarmaid Ferriter.",
         detail_en: "110 cum laude, first class honours. Dissertation: The Irish Labour Party. From Its Origins to 1938. Supervisors: Matteo Millan and Diarmaid Ferriter." },
       { period: "2019", title_it: "Erasmus+", title_en: "Erasmus+", place: "University College Dublin", detail_it: "Gennaio – maggio 2019.", detail_en: "January – May 2019." },

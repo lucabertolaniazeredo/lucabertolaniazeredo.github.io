@@ -1,6 +1,6 @@
 # Sito personale — come pubblicarlo e aggiornarlo
 
-Indirizzo previsto: **https://lucabertolani.github.io**
+Indirizzo previsto: **https://lucabertolaniazeredo.github.io**
 
 ## Cosa contiene la cartella
 
@@ -17,7 +17,7 @@ Indirizzo previsto: **https://lucabertolani.github.io**
 
 ## Pubblicarlo la prima volta
 
-1. Su github.com, con l'account che possiede l'organizzazione *italians-in-ireland*, crea un repository nuovo chiamato `lucabertolani.github.io` (sostituisci `lucabertolani` con il tuo nome utente GitHub: il nome del repository deve essere esattamente `<utente>.github.io`). Pubblico, senza README.
+1. Su github.com, con l'account che possiede l'organizzazione *italians-in-ireland*, crea un repository nuovo chiamato `lucabertolaniazeredo.github.io` (sostituisci `lucabertolani` con il tuo nome utente GitHub: il nome del repository deve essere esattamente `<utente>.github.io`). Pubblico, senza README.
 2. Con GitHub Desktop: *File → Clone repository*, scegli quello appena creato, salvalo in una cartella locale.
 3. Copia dentro la cartella clonata tutto il contenuto di questa cartella tranne `_lavoro/` e `Luca Bertolani Azeredo.dc.html`.
 4. In GitHub Desktop scrivi un messaggio di commit ("primo caricamento") e premi *Push origin*.
@@ -55,5 +55,73 @@ Questo sito rimanda all'altro dalla pagina *Progetti* e dal piè di pagina.
 Per il collegamento inverso, ricorda che `index.html` di *italians-in-ireland.github.io* viene rigenerato da `build_web.py`: una modifica fatta a mano sul repository verrebbe cancellata alla build successiva. Il link va aggiunto dentro lo script, nella sezione che costruisce il colofone (`add_colophon.py`). Il codice da inserire:
 
 ```html
-<a href="https://lucabertolani.github.io" target="_blank" rel="noopener">Luca Bertolani Azeredo</a>
+<a href="https://lucabertolaniazeredo.github.io" target="_blank" rel="noopener">Luca Bertolani Azeredo</a>
 ```
+
+---
+
+# Manutenzione tecnica (aggiornato 9 settembre 2026)
+
+Questa parte riguarda i file che fanno funzionare il sito dietro le quinte: di
+norma non c'è bisogno di toccarli, ma è utile sapere che ci sono e perché.
+
+## Cosa è stato aggiunto
+
+| File / cartella | A cosa serve |
+| --- | --- |
+| `fonts/` | I caratteri Figtree e Caprasimo ospitati qui, non più caricati da Google. Serve a non trasmettere l'IP dei visitatori a terzi (GDPR) e a non dipendere da un servizio esterno |
+| `vendor/` | Le librerie React e Babel, per la stessa ragione |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` | L'icona del sito nella scheda del browser e sulla schermata home dei telefoni |
+| `share.jpg` | L'anteprima che compare quando il link viene mandato per email, WhatsApp, LinkedIn o Bluesky |
+| `privacy.html` | Informativa privacy e note su copyright e riuso. Collegata dal piè di pagina |
+| `404.html` | La pagina mostrata quando un indirizzo non esiste |
+| `robots.txt`, `sitemap.xml` | Istruzioni per i motori di ricerca |
+| `cv/` | Il CV in PDF, scaricabile dalla pagina CV |
+| `tools/build-seo.js` | Rigenera il blocco `<noscript>` e la sitemap partendo da `site-data.js` |
+| `tools/cv-source.html` | La sorgente del CV in PDF |
+
+## Dopo ogni aggiornamento dei contenuti
+
+Quando aggiungi una pubblicazione o un intervento a `site-data.js`, lancia:
+
+```
+node tools/build-seo.js
+```
+
+Rigenera il blocco `<noscript>` dentro `index.html` (l'unico contenuto che i
+crawler vedono senza eseguire JavaScript: Bing, LinkedIn, WhatsApp, Slack e
+Bluesky non ne eseguono) e aggiorna `sitemap.xml`. Se salti questo passaggio il
+sito resta corretto per i visitatori, ma le novità non compaiono nelle anteprime
+e nei motori diversi da Google.
+
+Il blocco è delimitato da `<!-- SEO:START -->` e `<!-- SEO:END -->`: non
+modificarlo a mano, viene sovrascritto.
+
+## Aggiornare il CV in PDF
+
+Apri `tools/cv-source.html` in un browser, correggi quello che serve nel file,
+poi stampa in PDF (Ctrl+P, destinazione *Salva come PDF*, margini predefiniti,
+intestazioni e piè di pagina disattivati) salvando in
+`cv/luca-bertolani-azeredo-cv.pdf`. Per togliere il pulsante di download dalla
+pagina CV basta svuotare il campo `cvPdf` in `site-data.js`.
+
+## Aggiungere un profilo alla pagina Contatti
+
+In `site-data.js`, dentro `person.links`, ci sono righe già pronte per Google
+Scholar, Academia.edu e Bluesky: basta compilarne `url` e `value`. Le righe con
+`url` vuoto non vengono mostrate. Stessa cosa per `linkedin`, che va compilato
+con l'indirizzo completo del profilo.
+
+## Regole da non violare
+
+- **Niente risorse caricate da domini esterni.** Font, script, immagini e fogli
+  di stile devono stare in questa cartella. Aggiungere un `<script>` che punta a
+  un CDN, o un carattere di Google Fonts, rimette in piedi il problema privacy
+  che l'informativa dichiara risolto: in quel caso `privacy.html` diventerebbe
+  falsa e servirebbe un banner di consenso.
+- **Niente Google Analytics.** Se un giorno servono le statistiche, usare uno
+  strumento senza cookie e con dati in UE (Plausible, Umami): niente banner e
+  informativa da aggiornare in un punto solo.
+- Se cambi indirizzo (dominio proprio), vanno aggiornati: `link rel="canonical"`
+  e i tag `og:` in `index.html`, `robots.txt`, `sitemap.xml`, `privacy.html` e
+  `tools/build-seo.js` (costante `SITE`).
