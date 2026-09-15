@@ -5,3 +5,7 @@ tools/site-data.json
 
 # cartella di scarto: file che vanno cancellati a mano
 _to_delete/
+
+# le presentazioni restano in locale ma non vengono pubblicate
+presentations/
+img/slides/
