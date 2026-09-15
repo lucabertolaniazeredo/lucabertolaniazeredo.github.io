@@ -625,6 +625,7 @@ class Component extends DCLogic {
   setLang(lang) {
     return () => {
       try { localStorage.setItem("lba-lang", lang); } catch (e) {}
+      try { document.documentElement.lang = lang; } catch (e) {}
       this.setState({ lang });
     };
   }
