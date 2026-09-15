@@ -17,7 +17,7 @@ window.SITE_DATA = {
     email: "luca.bertolani.azeredo@gmail.com",
     orcid: "0009-0002-3315-8544",
     orcidUrl: "https://orcid.org/0009-0002-3315-8544",
-    linkedin: "",                      // incolla qui l'URL completo del profilo, es. "https://www.linkedin.com/in/..."
+    linkedin: "https://www.linkedin.com/in/luca-bertolani-azeredo-5b2255132/",
 
     /* CV scaricabile: metti il PDF in cv/ e lascia questo percorso, oppure svuota
        la stringa per far sparire il pulsante dalla pagina CV. */
@@ -27,9 +27,13 @@ window.SITE_DATA = {
        riga: label_it / label_en sono l'etichetta, value il testo mostrato, url il link.
        Le righe con url vuoto non vengono mostrate. */
     links: [
-      { label_it: "Google Scholar", label_en: "Google Scholar", value: "", url: "" },
-      { label_it: "Academia.edu",   label_en: "Academia.edu",   value: "", url: "" },
-      { label_it: "Bluesky",        label_en: "Bluesky",        value: "", url: "" },
+      { label_it: "Google Scholar", label_en: "Google Scholar", value: "scholar.google.com/citations",
+        url: "https://scholar.google.com/citations?user=1a4JbvwAAAAJ&hl=en" },
+      { label_it: "Academia.edu", label_en: "Academia.edu", value: "unina-it.academia.edu",
+        url: "https://unina-it.academia.edu/LucaBertolaniAzeredo" },
+      { label_it: "Bluesky", label_en: "Bluesky", value: "@luca1994.bsky.social",
+        url: "https://bsky.app/profile/luca1994.bsky.social" },
+      { label_it: "X", label_en: "X", value: "@luca_b_a", url: "https://x.com/luca_b_a" },
       { label_it: "Irish Historians", label_en: "Irish Historians",
         value: "irishhistorians.ie/members/lucaba", url: "https://irishhistorians.ie/members/lucaba/" },
       { label_it: "Italians in Ireland", label_en: "Italians in Ireland",
@@ -76,43 +80,119 @@ window.SITE_DATA = {
   ],
 
   /* Pubblicazioni — type: chapter | article | review | forthcoming */
+  /* Pubblicazioni — la più recente in cima.
+     type: "chapter" | "article" | "review" | "forthcoming"
+     abstract_it / abstract_en: facoltativi. Se li ometti, la voce resta senza
+     descrizione; se metti solo _it, l'inglese usa l'italiano. */
   publications: [
-    { year: "2026", type: "forthcoming",
+    {
+      year: "2026",
+      type: "forthcoming",
       title: "Cittadini virili, armati, e patriottici? Il caso degli Young Citizen Volunteers, Belfast 1912-16",
-      where: "in Matteo Millan, Marco Maria Aterrano, Enrico Acciai (a cura di), Percezioni e pratiche di (in)sicurezza in Italia, Viella" },
-    { year: "2026", type: "forthcoming",
+      where: "in Matteo Millan, Marco Maria Aterrano, Enrico Acciai (a cura di), Percezioni e pratiche di (in)sicurezza in Italia, Viella",
+      abstract_it: "Fondati a Belfast nel 1912 come corpo di educazione fisica e morale prima di confluire nel paramilitarismo unionista, gli Young Citizen Volunteers sono qui un caso di studio del rapporto fra associazionismo civico e mobilitazione armata alla vigilia della Grande Guerra. Il saggio legge il linguaggio della virilità, della disciplina del corpo e del patriottismo come il dispositivo che rese socialmente accettabile un'organizzazione armata in uno spazio di ambiguità giuridica, dove l'addestramento militare dei civili non costituiva reato.",
+      abstract_en: "Founded in Belfast in 1912 as a body for physical and moral improvement before it was absorbed into unionist paramilitarism, the Young Citizen Volunteers serve here as a case study in the relationship between civic associational life and armed mobilisation on the eve of the Great War. The chapter reads the language of manliness, bodily discipline and patriotism as the mechanism that made an armed organisation socially acceptable within a zone of legal ambiguity, where the military training of civilians was no crime."
+    },
+    {
+      year: "2026",
+      type: "forthcoming",
       title: "‘There are things stronger than Parliamentary majorities’. For a political use of violence in Ireland, 1909–1916",
-      where: "in Karina Bénazech Wendling, Vanessa Boullet, Pauline Collombier, Tim Heron (eds), Radicalism, Radicalisation and de-Radicalization in Ireland from 1798 to the Present Day, Éditions de l’Université de Lorraine" },
-    { year: "2026", type: "review",
+      where: "in Karina Bénazech Wendling, Vanessa Boullet, Pauline Collombier, Tim Heron (eds), Radicalism, Radicalisation and de-Radicalization in Ireland from 1798 to the Present Day, Éditions de l'Université de Lorraine",
+      abstract_it: "Fra il 1909 e il 1916 l'uso politico della violenza fu rivendicato apertamente, in Irlanda e in Gran Bretagna, da attori che si collocavano dentro la legalità costituzionale e non ai suoi margini. Ricostruendo il discorso pubblico sulla minaccia armata — dalle dichiarazioni dei leader parlamentari all'addestramento dei corpi volontari — il capitolo sostiene che la radicalizzazione del decennio pre-rivoluzionario non fu un fenomeno di frangia, ma un processo che attraversò istituzioni e stampa e che lo Stato britannico scelse a lungo di tollerare.",
+      abstract_en: "Between 1909 and 1916 the political use of violence was openly claimed, in Ireland and in Britain, by actors who placed themselves within constitutional legality rather than at its margins. Reconstructing the public discourse of armed threat — from the declarations of parliamentary leaders to the drilling of volunteer bodies — the chapter argues that the radicalisation of the pre-revolutionary decade was not a fringe phenomenon but a process that ran through institutions and the press, and one the British state long chose to tolerate."
+    },
+    {
+      year: "2026",
+      type: "review",
+      title: "Review of New Perspectives on Conflict and Ireland in the Nineteenth Century, ed. Paul Huddie, Cathal Billings and Arlene Crampsie",
+      where: "Études irlandaises, vol. 51, no. 1, 2026, pp. 161–162",
+      url: "https://doi.org/10.4000/169ix",
+      abstract_it: "Recensione del volume nato dal convegno annuale 2022 della Society for the Study of Nineteenth-Century Ireland, che ripensa il conflitto non come tratto eccezionale della vita irlandese ottocentesca ma come elemento intrecciato alle sue strutture ordinarie, dalle dispute locali alle cospirazioni politiche fino alla diaspora.",
+      abstract_en: "Review of the volume arising from the 2022 annual conference of the Society for the Study of Nineteenth-Century Ireland, which reconsiders conflict not as an exceptional feature of nineteenth-century Irish life but as something intertwined with its ordinary structures, from local disputes to political conspiracies and across the diaspora."
+    },
+    {
+      year: "2026",
+      type: "review",
       title: "Review of The Science of the Child in Liberal Italy, by Luisa Tasca",
-      where: "Journal of the History of Childhood and Youth, vol. 19, no. 1, Winter 2026, pp. 76–77", url: "https://doi.org/10.1353/hcy.2026.a979016" },
-    { year: "2025", type: "review",
+      where: "Journal of the History of Childhood and Youth, vol. 19, no. 1, Winter 2026, pp. 76–77",
+      url: "https://doi.org/10.1353/hcy.2026.a979016",
+      abstract_it: "Recensione di un libro che colma un vuoto storiografico: fra gli anni Ottanta dell'Ottocento e i primi anni Venti l'infanzia divenne in Italia oggetto di un'attenzione senza precedenti da parte di scienza, medicina, pedagogia e politica, in una stagione a lungo oscurata dalle figure di Montessori e Gentile e dalla successiva ombra del fascismo.",
+      abstract_en: "Review of a book that fills a historiographical gap: between the 1880s and the early 1920s childhood became, in Italy, the object of unprecedented attention from science, medicine, pedagogy and politics — a season long overshadowed by the figures of Montessori and Gentile and by the later shadow of fascism."
+    },
+    {
+      year: "2025",
+      type: "review",
       title: "Review of Conflict, Diaspora, and Empire: Irish Nationalism in Britain, 1912–1922, by Darragh Gannon",
-      where: "Irish Studies Review, vol. 33, no. 3, pp. 440–442", url: "https://doi.org/10.1080/09670882.2025.2535780" },
-    { year: "2024", type: "chapter",
+      where: "Irish Studies Review, vol. 33, no. 3, pp. 440–442",
+      url: "https://doi.org/10.1080/09670882.2025.2535780",
+      abstract_it: "Recensione di uno studio che rilegge il nazionalismo irlandese in Gran Bretagna, tradizionalmente considerato marginale, come elemento costitutivo della rivoluzione irlandese, mostrando quanto le comunità irlandesi in Gran Bretagna fossero intrecciate alla politica del periodo rivoluzionario.",
+      abstract_en: "Review of a study that recasts Irish nationalism in Britain, traditionally treated as marginal, as a constitutive element of the Irish Revolution, showing how deeply the Irish communities in Britain were entwined with the politics of the revolutionary period."
+    },
+    {
+      year: "2024",
+      type: "chapter",
       title: "Il manuale del giovane terrorista. Na Fianna Éireann e la nascita del paramilitarismo irlandese",
-      where: "in Generoso Cefalo e Riccardo Mardegan (a cura di), Con quale autorità? La narrazione storica come strumento di (de)legittimazione, Edizioni dell’Orso, Alessandria, pp. 85–92", url: "https://www.ediorso.it/con-quale-autorita.html" },
-    { year: "2024", type: "chapter",
+      where: "in Generoso Cefalo e Riccardo Mardegan (a cura di), Con quale autorità? La narrazione storica come strumento di (de)legittimazione, Edizioni dell'Orso, Alessandria, pp. 85–92",
+      url: "https://www.ediorso.it/con-quale-autorita.html",
+      abstract_it: "Nata in risposta al successo dei Boy Scouts di Baden-Powell e delle brigate giovanili confessionali britanniche, Na Fianna Éireann fu la prima organizzazione giovanile del nazionalismo irlandese a tenere insieme educazione fisica, cultura gaelica e addestramento militare. Il saggio ne segue la fondazione da parte di Bulmer Hobson e ne legge manuale e pubblicistica come strumenti di legittimazione, capaci di trasformare l'addestramento dei ragazzi in un dovere patriottico e di farne il vivaio del paramilitarismo del decennio successivo.",
+      abstract_en: "Founded in response to the success of Baden-Powell's Boy Scouts and of the British denominational boys' brigades, Na Fianna Éireann was the first youth organisation of Irish nationalism to combine physical education, Gaelic culture and military training. The chapter follows its foundation by Bulmer Hobson and reads its handbook and printed propaganda as instruments of legitimisation, turning the drilling of boys into a patriotic duty and making the organisation a nursery for the paramilitarism of the following decade."
+    },
+    {
+      year: "2024",
+      type: "chapter",
       title: "Manly Physique, Attractive Uniforms and Drill Manoeuvres",
-      where: "in Maria Gaviña-Costero, Dina Pedro, Dónall Mac Cathmhaoill (eds), ‘Lost, Unhappy and at Home’: The Impact of Violence on Irish Culture. Volume II: Socio-Cultural Aspects, Peter Lang, Oxford, pp. 15–30", url: "https://www.peterlang.com/document/1487257" },
-    { year: "2024", type: "chapter",
+      where: "in Maria Gaviña-Costero, Dina Pedro, Dónall Mac Cathmhaoill (eds), 'Lost, Unhappy and at Home': The Impact of Violence on Irish Culture. Volume II: Socio-Cultural Aspects, Peter Lang, Oxford, pp. 15–30",
+      url: "https://www.peterlang.com/document/1487257",
+      abstract_it: "Sullo sfondo delle ansie imperiali seguite alla guerra sudafricana — il timore della degenerazione fisica, il dibattito sulla coscrizione e sull'idoneità del cittadino-soldato — il saggio segue il passaggio delle uniformi, dell'addestramento formale e del culto del corpo maschile allenato dai movimenti giovanili britannici a quelli irlandesi. L'estetica e la pedagogia dell'infanzia militarizzata non sono un contorno: sono ciò che rese rispettabili le organizzazioni giovanili armate nell'Irlanda pre-bellica.",
+      abstract_en: "Against the imperial anxieties that followed the South African War — fears of physical degeneration, debates on conscription and on the fitness of the citizen-soldier — this chapter traces how uniforms, drill and the cult of the trained male body travelled from British youth movements into Irish ones. The aesthetics and pedagogy of militarised boyhood were not incidental: they were what made armed youth organisations respectable in pre-war Ireland."
+    },
+    {
+      year: "2024",
+      type: "chapter",
       title: "The Irish Labour Party 1922-32: A Decade of Opposition",
-      where: "in Sarah-Anne Buckle, Olivier Coquelin, Francis Devine (eds), Retreat From Revolution. Irish Working Class Politics in the 1920s, Umiskin Press, Dublin", url: "https://umiskinpress.wordpress.com/retreat-from-revolution/" },
-    { year: "2024", type: "chapter",
+      where: "in Sarah-Anne Buckle, Olivier Coquelin, Francis Devine (eds), Retreat From Revolution. Irish Working Class Politics in the 1920s, Umiskin Press, Dublin",
+      url: "https://umiskinpress.wordpress.com/retreat-from-revolution/",
+      abstract_it: "Il capitolo segue il Labour Party irlandese dal suo primo vero esordio elettorale, nel 1922, fino al 1932: un decennio trascorso interamente all'opposizione. Avendo rinunciato a presentarsi alle elezioni precedenti in nome della solidarietà nazionale, il partito arrivò al voto con un programma, dei dirigenti e un'influenza nazionale ma senza una macchina elettorale nel paese, e dovette costruirsi uno spazio politico in un sistema che la guerra civile stava ridefinendo attorno alla frattura del Trattato.",
+      abstract_en: "The chapter follows the Irish Labour Party from its first genuine electoral contest, in 1922, to 1932: a decade spent entirely in opposition. Having stood aside at the previous elections in the name of national solidarity, the party came to the polls with a programme, leaders and national influence but no electoral machinery in the country, and had to carve out political space in a system the Civil War was redefining around the Treaty split."
+    },
+    {
+      year: "2024",
+      type: "chapter",
       title: "Italian Labour & Unions in the ’70s. A Decade of Troubles",
-      where: "in Jack McGinley, Noel Ward (eds), Visions of Labour and Class in Ireland and Europe. Irish Labour History Society 2nd International Conference, Umiskin Press, Dublin", url: "https://umiskinpress.wordpress.com/conference-proceedings/" },
-    { year: "2024", type: "review",
+      where: "in Jack McGinley, Noel Ward (eds), Visions of Labour and Class in Ireland and Europe. Irish Labour History Society 2nd International Conference, Umiskin Press, Dublin",
+      url: "https://umiskinpress.wordpress.com/conference-proceedings/",
+      abstract_it: "Una storia del sindacalismo italiano dalle origini ottocentesche alla soppressione fascista e alla rinascita del dopoguerra, fino alla scissione del 1948 e alla nascita di CGIL, CISL e UIL. Il fuoco è sugli anni Settanta: la saldatura fra movimento operaio e movimento studentesco, lo Statuto dei lavoratori, e insieme la crisi economica, il terrorismo e la stagione stragista che chiudono il decennio.",
+      abstract_en: "A history of Italian trade unionism from its nineteenth-century origins through Fascist suppression and post-war revival to the 1948 split and the creation of CGIL, CISL and UIL. The focus falls on the 1970s: the alignment of the labour movement with the student movement, the Workers' Statute, and alongside them the economic crisis, political terrorism and the bombings that closed the decade."
+    },
+    {
+      year: "2024",
+      type: "review",
       title: "Review of Roscommon: The Irish Revolution, 1912–23, by John Burke",
-      where: "Irish Studies Review, vol. 32, no. 2, pp. 312–313", url: "https://doi.org/10.1080/09670882.2024.2340153" },
-    { year: "2024", type: "review",
-      title: "Review of The Camp Fire Girls. Gender, Race, and American Girlhood, 1910-1980, by Jennifer Helgren",
-      where: "Journal of the History of Childhood and Youth, vol. 17, no. 2, Spring 2024, pp. 315–317", url: "https://doi.org/10.1353/hcy.2024.a926875" },
-    { year: "2020", type: "article",
+      where: "Irish Studies Review, vol. 32, no. 2, pp. 312–313",
+      url: "https://doi.org/10.1080/09670882.2024.2340153",
+      abstract_it: "Recensione dell'undicesimo volume della serie «The Irish Revolution, 1912-23» di Four Courts Press, che apre e chiude con la domanda che andrebbe posta al centro della riflessione storiografica sul decennio rivoluzionario: fu davvero una rivoluzione, o il termine non descrive ciò che accadde in Irlanda fra il 1912 e il 1923?",
+      abstract_en: "Review of the eleventh volume in Four Courts Press's series 'The Irish Revolution, 1912–23', which opens and closes with the question that belongs at the centre of historiographical reflection on the revolutionary decade: was it a revolution, or does the term fail to describe what happened in Ireland between 1912 and 1923?"
+    },
+    {
+      year: "2024",
+      type: "review",
+      title: "Review of The Camp Fire Girls. Gender, Race, and American Girlhood, 1910–1980, by Jennifer Helgren",
+      where: "Journal of the History of Childhood and Youth, vol. 17, no. 2, Spring 2024, pp. 310–312",
+      url: "https://doi.org/10.1353/hcy.2024.a926875",
+      abstract_it: "Recensione di uno studio ventennale su una delle maggiori organizzazioni giovanili femminili statunitensi, costruito per temi anziché per cronologia e capace di collocare le Camp Fire Girls dentro gli sviluppi sociali e culturali americani e internazionali del Novecento.",
+      abstract_en: "Review of a study twenty years in the making on one of the major American girls' organisations, organised thematically rather than chronologically and placing the Camp Fire Girls within the American and international social and cultural developments of the twentieth century."
+    },
+    {
+      year: "2020",
+      type: "article",
       title: "Come (non) si racconta una pandemia. La Spagnola nelle pagine del «Corriere della Sera»",
-      where: "Amici di Passato e Presente, 15 giugno 2020", url: "https://amicidipassatoepresente.wordpress.com/2020/06/15/come-non-si-racconta-una-pandemia-la-spagnola-nelle-pagine-del-corriere-della-sera-luca-bertolani-azeredo/" }
+      where: "Amici di Passato e Presente, 15 giugno 2020",
+      url: "https://amicidipassatoepresente.wordpress.com/2020/06/15/come-non-si-racconta-una-pandemia-la-spagnola-nelle-pagine-del-corriere-della-sera-luca-bertolani-azeredo/",
+      abstract_it: "Scritto nei mesi della prima ondata di Covid-19, l'articolo rilegge la pandemia di spagnola attraverso il «Corriere della Sera» e si interroga sulla «congiura del silenzio» che per decenni ne ha consegnato il ricordo alle memorie private: perché la più grande pandemia della storia non ha avuto il suo Decamerone, e cosa dice quella rimozione del modo in cui si racconta un'emergenza sanitaria.",
+      abstract_en: "Written during the first wave of Covid-19, this piece rereads the 1918 influenza pandemic through the pages of the «Corriere della Sera» and asks about the conspiracy of silence that for decades confined its memory to private recollection: why the greatest pandemic in history produced no Decameron, and what that erasure tells us about how a health emergency is narrated."
+    }
   ],
 
-  /* Conferenze e talk — dal più recente */
   talks: [
     { date: "2026-06-19", pdf: "presentations/2026-06-19-poco-di-gelato-asmi-cambridge.pdf", title: "“Un poco di gelato, if I may”. A New History of Italian Immigration to Ireland (1880s-1926)", event: "Association for the Study of Modern Italy, Postgraduate Summer School 2026", place: "Department of Criminology, Cambridge" },
     { date: "2026-04-23", pdf: "presentations/2026-04-23-pedagogy-violence-jagiellonian-krakow.pdf", title: "The Pedagogy of Violence: Youth, Discipline, and Paramilitary Culture in Early 20th Century Ireland", event: "Comparative Irish Studies from Ancient Times to the Present, Jagiellonian University", place: "Cracovia", place_en: "Kraków" },
@@ -195,5 +275,32 @@ window.SITE_DATA = {
       { year: "2023", body_it: "Irish Labour History Society", body_en: "Irish Labour History Society" },
       { year: "2021–2025", body_it: "Borsa di dottorato, Scuola Superiore Meridionale", body_en: "Doctoral scholarship, Scuola Superiore Meridionale" }
     ]
+  },
+
+  /* La tesi di dottorato — mostrata in fondo alla pagina "Ricerca".
+     Per farla sparire, cancella l'intero blocco thesis o svuota il titolo. */
+  thesis: {
+    kicker_it: "La tesi di dottorato",
+    kicker_en: "The doctoral dissertation",
+    title: "«There are illegalities that are not crimes». An investigation into political violence and paramilitary bodies in Ireland before the Great War",
+    meta_it: "Scuola Superiore Meridionale, Napoli · discussa il 9 febbraio 2026 · relatore Teodoro Tagliaferri",
+    meta_en: "Scuola Superiore Meridionale, Naples · defended 9 February 2026 · supervisor Teodoro Tagliaferri",
+    body_it: "La tesi indaga le origini della violenza politica e del volontarismo armato nell'Irlanda e nella Gran Bretagna del primo Novecento, con particolare attenzione ai primi anni della crisi del Terzo Home Rule Bill (1912–1916), e sostiene che in quel periodo si compie la transizione decisiva attraverso cui la politica irlandese e britannica si militarizza. Un primo capitolo colloca la violenza politica irlandese in una prospettiva di lunga durata, mostrando come istituzioni statali, forze di polizia ed esercito abbiano plasmato il rapporto della società irlandese con la forza. I due capitoli centrali ricostruiscono quattro organizzazioni volontarie e paramilitari poco studiate che precedono l'Ulster Volunteer Force e gli Irish Volunteers — Na Fianna Éireann, gli Young Citizen Volunteers of Ireland, l'Enniskillen Horse e l'Irish Citizen Army — e mostrano come esse abbiano sperimentato per prime modelli di associazionismo armato e di militarizzazione civica destinati a influenzare i movimenti di massa successivi. L'ultimo capitolo allarga lo sguardo all'Europa contemporanea, individuando nella militarizzazione della politica, nella negoziazione fra legalità e illegalità e nell'attrattiva del volontarismo armato dei tratti comuni al continente, e riconoscendo insieme la traiettoria irlandese come distinta.",
+    body_en: "The dissertation examines the origins of political violence and armed voluntarism in early twentieth-century Ireland and Great Britain, with particular focus on the early years of the Third Home Rule Bill Crisis (1912–1916), and argues that this period marked the decisive transition through which Irish and British politics became militarised. An opening chapter situates Irish political violence in a longue durée perspective, showing how state institutions, policing and the military shaped Irish society's relationship to force. The two central chapters reconstruct four underexplored voluntary and paramilitary organisations that predated the Ulster Volunteer Force and the Irish Volunteers — Na Fianna Éireann, the Young Citizen Volunteers of Ireland, the Enniskillen Horse and the Irish Citizen Army — and show how they pioneered models of armed associationism and civic militarisation that would shape later mass movements. A final chapter widens the frame to contemporary Europe, identifying the militarisation of politics, the negotiation between legality and illegality and the appeal of armed voluntarism as shared continental traits, while recognising Ireland's distinctive trajectory.",
+    photo: "img/tesi-ssm.jpg",
+    caption_it: "Scuola Superiore Meridionale, Napoli — la tesi di dottorato.",
+    caption_en: "Scuola Superiore Meridionale, Naples — the doctoral dissertation."
+  },
+
+  /* Il progetto di ricerca in corso — mostrato in fondo alla pagina "Ricerca". */
+  nextResearch: {
+    kicker_it: "Progetto in corso",
+    kicker_en: "Current project",
+    title: "Before the Revolution: Armed Citizenship and Civil Militarism in Modern Ireland",
+    body_it: "La storiografia sul decennio che precede il 1916 si è concentrata quasi per intero sulle organizzazioni armate esplicitamente politiche, insurrezionali o illegali, leggendo la violenza attraverso le lenti della rivoluzione, del conflitto settario e della repressione statale. Questo progetto sposta l'attenzione sul substrato culturale, giuridico e sociale che rese le pratiche armate intelligibili, legittime e socialmente radicate prima che venissero associate all'insurrezione: i circoli di tiro civili, le associazioni sportive, i corpi cadetti e le organizzazioni volontarie di addestramento attive in Irlanda fra il 1900 e il 1925, né milizie clandestine né semplici società ricreative, ma corpi innestati nelle scuole, nelle culture sportive, nelle associazioni patriottiche e nei progetti di miglioramento fisico e morale. La distinzione fra organizzazione armata legittima e illegittima non era quasi mai fissata in partenza: era negoziata politicamente, contestata giuridicamente e ridefinita in via amministrativa a seconda delle ansie del momento su lealtà, cittadinanza, ordine pubblico e sicurezza nazionale. Il progetto combina ricerca d'archivio, storia legislativa, storia sociale e culturale, prosopografia e strumenti digitali, e colloca il caso irlandese accanto ai movimenti di militarismo civile studiati per Gran Bretagna, Francia, Germania, Svizzera e Italia.",
+    body_en: "Scholarship on the decade before 1916 has concentrated almost entirely on explicitly political, insurgent or illegal armed organisations, reading violence through the lenses of revolution, sectarian conflict and state repression. This project shifts attention to the cultural, legal and social substratum that made armed practices intelligible, legitimate and socially embedded before they became associated with insurgency: the civilian rifle clubs, shooting associations, cadet formations and voluntary training organisations active in Ireland between 1900 and 1925 — neither clandestine militias nor purely recreational bodies, but organisations embedded in schools, sporting cultures, patriotic associations and projects of physical and moral improvement. The distinction between legitimate and illegitimate armed organisation was rarely fixed in advance: it was politically negotiated, legally contested and administratively redefined in response to shifting anxieties about loyalty, citizenship, public order and national security. The project combines archival research, legislative history, social and cultural history, prosopography and digital methods, and sets the Irish case alongside the civil-militarism movements studied for Britain, France, Germany, Switzerland and Italy.",
+    photo: "img/strasburgo.jpg",
+    caption_it: "Colloque SOFEIR, Université de Strasbourg, marzo 2026.",
+    caption_en: "Colloque SOFEIR, Université de Strasbourg, March 2026."
   }
 };
