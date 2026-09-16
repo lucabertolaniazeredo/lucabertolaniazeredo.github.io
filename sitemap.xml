@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lucabertolaniazeredo.github.io/</loc>
-    <lastmod>2026-09-15</lastmod>
+    <loc>https://lucabertolaniazeredo.com/</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="https://lucabertolaniazeredo.github.io/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lucabertolaniazeredo.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://lucabertolaniazeredo.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lucabertolaniazeredo.com/"/>
   </url>
   <url>
-    <loc>https://lucabertolaniazeredo.github.io/privacy.html</loc>
-    <lastmod>2026-09-15</lastmod>
+    <loc>https://lucabertolaniazeredo.com/privacy.html</loc>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

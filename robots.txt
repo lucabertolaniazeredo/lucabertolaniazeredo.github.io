@@ -1,4 +1,4 @@
-# https://lucabertolaniazeredo.github.io/
+# https://lucabertolaniazeredo.com/
 User-agent: *
 Allow: /
 
@@ -6,4 +6,4 @@ Allow: /
 User-agent: GPTBot
 Disallow: /
 
-Sitemap: https://lucabertolaniazeredo.github.io/sitemap.xml
+Sitemap: https://lucabertolaniazeredo.com/sitemap.xml

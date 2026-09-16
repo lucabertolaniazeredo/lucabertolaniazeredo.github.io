@@ -1,6 +1,6 @@
 # Sito personale — come pubblicarlo e aggiornarlo
 
-Indirizzo previsto: **https://lucabertolaniazeredo.github.io**
+Indirizzo previsto: **https://lucabertolaniazeredo.com**
 
 ## Cosa contiene la cartella
 
@@ -55,7 +55,7 @@ Questo sito rimanda all'altro dalla pagina *Progetti* e dal piè di pagina.
 Per il collegamento inverso, ricorda che `index.html` di *italians-in-ireland.github.io* viene rigenerato da `build_web.py`: una modifica fatta a mano sul repository verrebbe cancellata alla build successiva. Il link va aggiunto dentro lo script, nella sezione che costruisce il colofone (`add_colophon.py`). Il codice da inserire:
 
 ```html
-<a href="https://lucabertolaniazeredo.github.io" target="_blank" rel="noopener">Luca Bertolani Azeredo</a>
+<a href="https://lucabertolaniazeredo.com" target="_blank" rel="noopener">Luca Bertolani Azeredo</a>
 ```
 
 ---

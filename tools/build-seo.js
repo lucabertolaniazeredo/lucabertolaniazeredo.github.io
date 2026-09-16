@@ -20,7 +20,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const SITE = 'https://lucabertolaniazeredo.github.io/';
+const SITE = 'https://lucabertolaniazeredo.com/';
 
 // site-data.js assegna a window.SITE_DATA: gli diamo un window finto.
 const window = {};
