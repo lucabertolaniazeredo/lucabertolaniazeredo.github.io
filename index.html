@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -80,11 +80,27 @@
 </script>
 
 <script>
-  /* Allinea l'attributo lang alla lingua scelta dall'utente (accessibilità + traduzione automatica). */
-  try {
-    var l = localStorage.getItem('lba-lang');
-    if (l === 'en' || l === 'it') document.documentElement.lang = l;
-  } catch (e) {}
+  /* Lingua della pagina. Ordine di precedenza:
+     1. il parametro ?lang=en o ?lang=it nell'indirizzo (serve per mandare a un
+        interlocutore un link che si apra già nella sua lingua);
+     2. la scelta che il visitatore ha fatto in una visita precedente;
+     3. l'inglese, che e' il valore predefinito del sito.
+     Il parametro viene anche memorizzato, così chi arriva da un link inglese
+     ritrova l'inglese se torna sul sito. */
+  (function () {
+    var lang = null;
+    try {
+      var q = new URLSearchParams(window.location.search).get('lang');
+      if (q) { q = String(q).toLowerCase().slice(0, 2); if (q === 'en' || q === 'it') lang = q; }
+    } catch (e) {}
+    if (lang) { try { localStorage.setItem('lba-lang', lang); } catch (e) {} }
+    if (!lang) {
+      try { var s = localStorage.getItem('lba-lang'); if (s === 'en' || s === 'it') lang = s; } catch (e) {}
+    }
+    if (!lang) lang = 'en';   /* valore predefinito: inglese */
+    window.LBA_LANG = lang;
+    try { document.documentElement.lang = lang; } catch (e) {}
+  })();
 </script>
 
 <script src="./support.js"></script>
@@ -522,7 +538,7 @@
   </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;it&quot;,&quot;en&quot;],&quot;default&quot;:&quot;it&quot;,&quot;tsType&quot;:&quot;\&quot;it\&quot; | \&quot;en\&quot;&quot;,&quot;section&quot;:&quot;Comportamento&quot;},&quot;showAccentShapes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultLang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;it&quot;,&quot;en&quot;],&quot;default&quot;:&quot;en&quot;,&quot;tsType&quot;:&quot;\&quot;it\&quot; | \&quot;en\&quot;&quot;,&quot;section&quot;:&quot;Comportamento&quot;},&quot;showAccentShapes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Home&quot;}}">
 const PAGES = ["home","ricerca","pubblicazioni","conferenze","didattica","progetti","note","cv","contatti"];
 
 const STR = {
@@ -582,6 +598,8 @@ class Component extends DCLogic {
   componentDidMount() {
     let lang = this.props.defaultLang === "en" ? "en" : "it";
     try { const s = localStorage.getItem("lba-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
+    if (window.LBA_LANG === "it" || window.LBA_LANG === "en") lang = window.LBA_LANG;
+    try { document.documentElement.lang = lang; } catch (e) {}
     this.setState({ lang, page: this.pageFromHash() });
     this._onHash = () => this.setState({ page: this.pageFromHash(), openTalk: null });
     window.addEventListener("hashchange", this._onHash);

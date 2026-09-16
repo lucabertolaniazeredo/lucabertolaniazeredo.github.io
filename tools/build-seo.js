@@ -126,8 +126,6 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="it" href="${SITE}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="${SITE}"/>
   </url>
   <url>
     <loc>${SITE}privacy.html</loc>
