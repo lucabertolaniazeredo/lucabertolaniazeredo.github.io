@@ -94,6 +94,37 @@ Bluesky non ne eseguono) e aggiorna `sitemap.xml`. Se salti questo passaggio il
 sito resta corretto per i visitatori, ma le novità non compaiono nelle anteprime
 e nei motori diversi da Google.
 
+Subito dopo, lancia anche:
+
+```
+node tools/check-cv.js
+```
+
+Confronta `tools/cv-source.html` con `site-data.js` e dice quali voci hai
+aggiunto al sito ma non al CV. I contenuti del CV sono scritti a mano e non si
+aggiornano da soli: senza questo controllo il sito e il CV scaricabile
+divergono in silenzio, e te ne accorgi solo quando qualcuno se ne accorge prima
+di te. Se segnala qualcosa, aggiungi le voci a `tools/cv-source.html`, poi apri
+quel file nel browser e stampalo in PDF (Ctrl+P, «Salva come PDF», margini
+predefiniti, senza intestazioni ne pie' di pagina) salvando in
+`cv/luca-bertolani-azeredo-cv.pdf`.
+
+### La lingua del sito
+
+Il sito si apre in inglese. Chi sceglie l'italiano col pulsante IT se lo vede
+ricordato alle visite successive. Nell'indirizzo si puo' forzare la lingua:
+`?lang=it` apre in italiano, `?lang=en` in inglese. Usa
+`https://lucabertolaniazeredo.com/?lang=it` nelle firme e nelle candidature
+italiane.
+
+### Attenzione: `index.html` e' un file esportato
+
+`index.html` contiene un blocco `text/x-dc` e un attributo `data-props`: e'
+stato generato da un editor visuale. Le modifiche fatte a mano in quel file
+— lo script della lingua in testa, i metadati, il valore predefinito della
+lingua — verrebbero cancellate da una nuova esportazione. Se riesporti il
+sito, riapplicale.
+
 Il blocco è delimitato da `<!-- SEO:START -->` e `<!-- SEO:END -->`: non
 modificarlo a mano, viene sovrascritto.
 

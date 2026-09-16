@@ -42,14 +42,14 @@ out.push(`    <p><strong>${esc(p.role_en)}</strong> — ${esc(p.role_it)}</p>`);
 out.push(`    <p>${esc(p.lede_en)}</p>`);
 out.push(`    <p lang="it">${esc(p.lede_it)}</p>`);
 
-out.push('    <h2>Filoni di ricerca</h2>');
+out.push('    <h2>Research strands</h2>');
 (D.research || []).forEach((r) => {
-  out.push(`    <h3>${esc(r.title_it)}</h3>`);
-  out.push(`    <p>${esc(r.body_it)}</p>`);
+  out.push(`    <h3>${esc(r.title_en)}</h3>`);
+  out.push(`    <p>${esc(r.body_en)}</p>`);
 });
 
 const pubs = D.publications || [];
-out.push(`    <h2>Pubblicazioni (${pubs.length})</h2>`);
+out.push(`    <h2>Publications (${pubs.length})</h2>`);
 out.push('    <ul>');
 pubs.forEach((x) => {
   const title = x.url
@@ -60,7 +60,7 @@ pubs.forEach((x) => {
 out.push('    </ul>');
 
 const talks = D.talks || [];
-out.push(`    <h2>Interventi a convegni (${talks.length})</h2>`);
+out.push(`    <h2>Conference papers (${talks.length})</h2>`);
 out.push('    <ul>');
 talks.forEach((k) => {
   out.push(`      <li>${esc((k.date || '').slice(0, 7))} — ${esc(k.title)}. ${esc(k.event)}, ${esc(k.place)}</li>`);
@@ -69,30 +69,30 @@ out.push('    </ul>');
 
 const projects = D.projects || [];
 if (projects.length) {
-  out.push('    <h2>Progetti</h2>');
+  out.push('    <h2>Projects</h2>');
   out.push('    <ul>');
   projects.forEach((x) => {
-    out.push(`      <li><a href="${esc(x.url)}">${esc(x.name)}</a> — ${esc(x.body_it)}</li>`);
+    out.push(`      <li><a href="${esc(x.url)}">${esc(x.name)}</a> — ${esc(x.body_en || x.body_it)}</li>`);
   });
   out.push('    </ul>');
 }
 
-out.push('    <h2>Formazione</h2>');
+out.push('    <h2>Education</h2>');
 out.push('    <ul>');
 (D.cv && D.cv.education ? D.cv.education : []).forEach((e) => {
-  out.push(`      <li>${esc(e.period)} — ${esc(e.title_it)}, ${esc(e.place)}</li>`);
+  out.push(`      <li>${esc(e.period)} — ${esc(e.title_en || e.title_it)}, ${esc(e.place)}</li>`);
 });
 out.push('    </ul>');
 
-out.push('    <h2>Contatti</h2>');
+out.push('    <h2>Contact</h2>');
 out.push('    <ul>');
 out.push(`      <li>Email: <a href="mailto:${esc(p.email)}">${esc(p.email)}</a></li>`);
 if (p.orcidUrl) out.push(`      <li>ORCID: <a href="${esc(p.orcidUrl)}">${esc(p.orcid)}</a></li>`);
 if (p.linkedin) out.push(`      <li>LinkedIn: <a href="${esc(p.linkedin)}">${esc(p.linkedin)}</a></li>`);
 (p.links || []).filter((l) => l.url).forEach((l) => {
-  out.push(`      <li>${esc(l.label_it || l.label)}: <a href="${esc(l.url)}">${esc(l.value || l.url)}</a></li>`);
+  out.push(`      <li>${esc(l.label_en || l.label_it || l.label)}: <a href="${esc(l.url)}">${esc(l.value || l.url)}</a></li>`);
 });
-out.push(`      <li>${esc(p.location_it)}</li>`);
+out.push(`      <li>${esc(p.location_en)}</li>`);
 out.push('    </ul>');
 out.push('    <p><a href="privacy.html">Privacy e note legali</a></p>');
 out.push('  </div>');
