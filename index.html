@@ -379,11 +379,11 @@
             <div style="flex:1 1 320px;min-width:0">
 
               <sc-if value="{{ k.hasAbstract }}" hint-placeholder-val="{{ true }}">
-                <button onClick="{{ k.toggle }}" aria-expanded="{{ k.aria }}" style="display:block;width:100%;border:0;padding:0;margin:0;background:none;text-align:left;cursor:pointer;font-family:'Figtree',sans-serif;color:inherit">
-                  <h2 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:17px;line-height:1.4;margin:0 0 5px;text-wrap:pretty;color:{{ k.titleColor }}">{{ k.title }}</h2>
-                  <p style="margin:0;color:#645c50;font-size:15px;line-height:1.55">{{ k.event }} — {{ k.place }}</p>
-                  <span style="display:inline-flex;align-items:center;gap:6px;margin-top:9px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8c491a">{{ k.toggleLabel }} <span style="font-size:14px;line-height:1">{{ k.chevron }}</span></span>
-                </button>
+                <h2 style="font-family:'Figtree',sans-serif;font-weight:700;font-size:17px;line-height:1.4;margin:0 0 5px;text-wrap:pretty;color:{{ k.titleColor }}">
+                  <button onClick="{{ k.toggle }}" aria-expanded="{{ k.aria }}" style="display:block;width:100%;border:0;padding:0;margin:0;background:none;text-align:left;cursor:pointer;font:inherit;color:inherit">{{ k.title }}</button>
+                </h2>
+                <p style="margin:0;color:#645c50;font-size:15px;line-height:1.55">{{ k.event }} — {{ k.place }}</p>
+                <button onClick="{{ k.toggle }}" aria-hidden="true" tabindex="-1" style="display:inline-flex;align-items:center;gap:6px;margin-top:9px;border:0;padding:0;background:none;cursor:pointer;font-family:'Figtree',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8c491a">{{ k.toggleLabel }} <span style="font-size:14px;line-height:1">{{ k.chevron }}</span></button>
                 <sc-if value="{{ k.isOpen }}" hint-placeholder-val="{{ false }}">
                   <p style="margin:14px 0 2px;max-width:74ch;padding-left:16px;border-left:2px solid #c67139;color:#3a3632;font-size:15px;line-height:1.75">{{ k.abstract }}</p>
                 </sc-if>
