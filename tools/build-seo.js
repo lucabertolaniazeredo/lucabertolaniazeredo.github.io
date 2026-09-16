@@ -42,10 +42,13 @@ out.push(`    <p><strong>${esc(p.role_en)}</strong> — ${esc(p.role_it)}</p>`);
 out.push(`    <p>${esc(p.lede_en)}</p>`);
 out.push(`    <p lang="it">${esc(p.lede_it)}</p>`);
 
-out.push('    <h2>Research strands</h2>');
-(D.research || []).forEach((r) => {
-  out.push(`    <h3>${esc(r.title_en)}</h3>`);
-  out.push(`    <p>${esc(r.body_en)}</p>`);
+(D.researchAreas || []).forEach((a) => {
+  out.push(`    <h2>${esc(a.title)}</h2>`);
+  out.push(`    <p>${esc(a.lede_en)}</p>`);
+  (a.blocks || []).forEach((r) => {
+    out.push(`    <h3>${esc(r.title || r.title_en || r.title_it)}</h3>`);
+    out.push(`    <p>${esc(r.body_en || r.body_it)}</p>`);
+  });
 });
 
 const pubs = D.publications || [];
