@@ -38,9 +38,9 @@ out.push('<!-- SEO:START — generato da tools/build-seo.js, non modificare a ma
 out.push('<noscript>');
 out.push('  <div style="max-width:760px;margin:0 auto;padding:40px 28px;font-family:system-ui,sans-serif;line-height:1.6;color:#201e1d">');
 out.push(`    <h1>${esc(p.name)}${p.suffix ? ', ' + esc(p.suffix) : ''}</h1>`);
-out.push(`    <p><strong>${esc(p.role_it)}</strong> — ${esc(p.role_en)}</p>`);
-out.push(`    <p>${esc(p.lede_it)}</p>`);
-out.push(`    <p lang="en">${esc(p.lede_en)}</p>`);
+out.push(`    <p><strong>${esc(p.role_en)}</strong> — ${esc(p.role_it)}</p>`);
+out.push(`    <p>${esc(p.lede_en)}</p>`);
+out.push(`    <p lang="it">${esc(p.lede_it)}</p>`);
 
 out.push('    <h2>Filoni di ricerca</h2>');
 (D.research || []).forEach((r) => {
