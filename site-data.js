@@ -63,7 +63,13 @@ window.SITE_DATA = {
           body_en: "This research investigates Irish paramilitary bodies in the decade before the Great War: how they armed, drilled and built their own legitimacy in a space where \u2014 in the phrase that gives the thesis its title \u2014 \u201cthere are illegalities that are not crimes\u201d. It cuts across nationalism and unionism, looking at youth organisations, the discipline of the body, the press, and the ways the British state chose not to intervene.",
           photo: "img/panel-ssm.jpg",
           caption_it: "Workshop dottorale, Scuola Superiore Meridionale, Napoli.",
-          caption_en: "Doctoral workshop, Scuola Superiore Meridionale, Naples."
+          caption_en: "Doctoral workshop, Scuola Superiore Meridionale, Naples.",
+          /* Carosello: più foto per lo stesso blocco. La prima è quella sopra. */
+          photos: [
+            { src: "img/talks/2025-06-17-naples.jpg", caption_it: "PhD Workshop, Scuola Superiore Meridionale, Napoli, giugno 2025.", caption_en: "PhD Workshop, Scuola Superiore Meridionale, Naples, June 2025." },
+            { src: "img/talks/2025-09-19-prague.jpg", caption_it: "EFACIS International Postgraduate Conference, Praga, settembre 2025.", caption_en: "EFACIS International Postgraduate Conference, Prague, September 2025." },
+            { src: "img/talks/2025-05-08-turku.jpg", caption_it: "EFACIS Conference, Åbo / Turku, maggio 2025.", caption_en: "EFACIS Conference, Åbo / Turku, May 2025." }
+          ]
         },
         {
           kicker_it: "La tesi di dottorato", kicker_en: "The doctoral dissertation",
@@ -105,6 +111,31 @@ window.SITE_DATA = {
           linkLabel_en: "Go to the archive: italians-in-ireland.github.io",
           linkUrl: "https://italians-in-ireland.github.io/"
         }
+      ]
+    }
+  ],
+
+  /* Convegni organizzati: compaiono nella pagina Progetti e nel CV */
+  events: [
+    {
+      title: "Violence and Empire. From the Early 1800s to the End of the Great War",
+      dates_it: "6–7 marzo 2026", dates_en: "6–7 March 2026",
+      place_it: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples",
+      kind_it: "Convegno internazionale", kind_en: "International conference",
+      role_it: "Comitato scientifico e organizzativo · Chair della prima keynote", role_en: "Scientific and Organising Committee · Chair, first keynote",
+      keynotes: "Tanja Bührer · Georgina Sinclair",
+      body_it: "Due giornate dedicate al rapporto fra violenza e impero nel lungo Ottocento, fino alla Grande Guerra: punizione e disciplina negli spazi imperiali, polizia e burocratizzazione della forza, diritto e produzione della violenza «legittima», percezione della violenza coloniale nelle metropoli. Quattro panel e due keynote, con studiosi da università europee e nordamericane.",
+      body_en: "Two days on the relationship between violence and empire across the long nineteenth century to the Great War: punishment and discipline in imperial spaces, policing and the bureaucratisation of force, law and the production of \u201clegitimate\u201d violence, and the perception of colonial violence in the metropole. Four panels and two keynotes, with scholars from European and North American universities.",
+      photos: [
+        { src: "img/conf/keynote-buhrer.jpg", caption_it: "Prima keynote: Tanja Bührer, chair Luca Bertolani Azeredo.", caption_en: "First keynote: Tanja Bührer, chaired by Luca Bertolani Azeredo." },
+        { src: "img/conf/group.jpg", caption_it: "Relatori e organizzatori.", caption_en: "Speakers and organisers." },
+        { src: "img/conf/audience.jpg", caption_it: "Il pubblico, Via Mezzocannone.", caption_en: "The audience, Via Mezzocannone." },
+        { src: "img/conf/room.jpg", caption_it: "La sala durante la keynote.", caption_en: "The room during the keynote." }
+      ],
+      docs: [
+        { href: "docs/violence-and-empire-2026-cfp.pdf", label_it: "Call for papers", label_en: "Call for papers" },
+        { href: "docs/violence-and-empire-2026-programme.pdf", label_it: "Programma", label_en: "Programme" },
+        { href: "docs/violence-and-empire-2026-book-of-abstracts.pdf", label_it: "Book of abstracts", label_en: "Book of abstracts" }
       ]
     }
   ],

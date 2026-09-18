@@ -480,8 +480,27 @@
   .ic img { border-radius:0; }
   .ktag { display:table; margin-top:6px; background:var(--red); color:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px 1px; line-height:1.4; }
   .map .inset text { fill:var(--ink2); font-family:var(--sans); }
+
+  /* v7: carousel + organised conferences */
+  .carw { position:relative; }
+  .car { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; position:relative; z-index:0; }
+  .car::-webkit-scrollbar { display:none; }
+  .slide { flex:0 0 100%; margin:0; scroll-snap-align:start; position:relative; }
+  .slide img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:50% 40%; display:block; }
+  .slide figcaption { position:absolute; left:0; right:0; bottom:0; margin:0 !important; padding:22px 12px 8px; font-size:12.5px; color:#fff; background:linear-gradient(transparent, rgba(0,0,0,.62)); }
+  .carw .pw { z-index:2; }
+  .cb { position:absolute; z-index:3; top:50%; transform:translateY(-50%); width:34px; height:34px; border:0; background:var(--red); color:#fff; font-size:22px; line-height:1; cursor:pointer; }
+  .cb:hover { background:var(--red-dark); }
+  .cb-p { left:0; } .cb-n { right:0; }
+  .ev { margin-top:10px; }
+  .ev-head { padding:34px clamp(22px,4vw,44px); }
+  .ev-head h3 { font-family:var(--serif); font-weight:700; font-size:clamp(24px,3vw,32px); line-height:1.12; margin:6px 0 10px; text-wrap:balance; }
+  .ev-head p { margin:0; }
+  .ev-body { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,420px); gap:28px; border:1px solid var(--rule); border-top:0; }
+  .docs { display:flex; flex-wrap:wrap; gap:8px; }
+  @media (max-width:1180px) { .ev-body { grid-template-columns:1fr; } }
 </style>
-<script src="site-data.js?v=2026-09-18d"></script>
+<script src="site-data.js?v=2026-09-18e"></script>
 </helmet>
 
 <div class="site">
@@ -590,8 +609,17 @@
                       <p style="margin:14px 0 0"><a class="btn btn-o" href="{{ r.linkUrl }}" target="_blank" rel="noopener">{{ r.linkLabel }} ↗</a></p>
                     </sc-if>
                   </div>
-                  <sc-if value="{{ r.photo }}" hint-placeholder-val="{{ false }}">
-                    <figure>
+                  <sc-if value="{{ r.multi }}" hint-placeholder-val="{{ false }}">
+                    <div><div class="carw ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
+                        <div class="car">
+                          <sc-for list="{{ r.slides }}" as="sl" hint-placeholder-count="3">
+                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy"><figcaption>{{ sl.caption }}</figcaption></figure>
+                          </sc-for>
+                        </div>
+                        <button class="cb cb-p" onClick="{{ carPrev }}" aria-label="Previous">‹</button><button class="cb cb-n" onClick="{{ carNext }}" aria-label="Next">›</button>
+                      </div></div>
+                  </sc-if>
+                  <sc-if value="{{ r.single }}" hint-placeholder-val="{{ false }}"><figure>
                       <div class="ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
                       <img class="washed" data-photo="{{ r.photo }}" alt="{{ r.caption }}" loading="lazy"></div>
                       <figcaption>{{ r.caption }}</figcaption>
@@ -743,6 +771,41 @@
           </a>
         </sc-for>
       </div>
+    </sc-if>
+
+    <sc-if value="{{ pProgetti }}" hint-placeholder-val="{{ false }}">
+      <h2 class="plate h2s" style="margin-top:48px">{{ evTitle }}</h2>
+      <sc-for list="{{ events }}" as="e" hint-placeholder-count="1">
+        <article class="ev">
+          <div class="red ev-head">
+            <img class="ww" src="img/brand/wave-corner-white.svg" alt="">
+            <div class="in">
+              <p class="kick">{{ e.kind }} · {{ e.dates }} · {{ e.place }}</p>
+              <h3>{{ e.title }}</h3>
+              <p class="meta">{{ e.role }}</p>
+            </div>
+          </div>
+          <div class="box ev-body">
+            <div>
+              <p style="margin:0 0 14px;max-width:66ch">{{ e.body }}</p>
+              <p class="v" style="margin:0 0 18px"><strong style="color:var(--ink)">{{ keynoteLbl }}:</strong> {{ e.keynotes }}</p>
+              <div class="docs">
+                <sc-for list="{{ e.docs }}" as="d" hint-placeholder-count="3">
+                  <a class="btn btn-o" href="{{ d.href }}" target="_blank" rel="noopener">{{ d.label }} · PDF ↓</a>
+                </sc-for>
+              </div>
+            </div>
+            <div class="carw ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
+                        <div class="car">
+                          <sc-for list="{{ e.slides }}" as="sl" hint-placeholder-count="3">
+                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy"><figcaption>{{ sl.caption }}</figcaption></figure>
+                          </sc-for>
+                        </div>
+                        <button class="cb cb-p" onClick="{{ carPrev }}" aria-label="Previous">‹</button><button class="cb cb-n" onClick="{{ carNext }}" aria-label="Next">›</button>
+                      </div>
+          </div>
+        </article>
+      </sc-for>
     </sc-if>
 
     <sc-if value="{{ pNote }}" hint-placeholder-val="{{ false }}">
@@ -932,6 +995,18 @@ class Component extends DCLogic {
   state = { lang: "it", page: "home", openTalk: null, mapCity: null };
 
   componentDidMount() {
+    try {
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        this._car = setInterval(() => {
+          document.querySelectorAll(".carw").forEach((w) => {
+            if (w.matches(":hover") || (w._pause && Date.now() - w._pause < 12000)) return;
+            const tr = w.querySelector(".car"); if (!tr || tr.children.length < 2) return;
+            const n = tr.children.length, i = Math.round(tr.scrollLeft / tr.clientWidth);
+            tr.scrollTo({ left: ((i + 1) % n) * tr.clientWidth, behavior: "smooth" });
+          });
+        }, 6000);
+      }
+    } catch (e) {}
     let lang = this.props.defaultLang === "en" ? "en" : "it";
     try { const s = localStorage.getItem("lba-lang"); if (s === "it" || s === "en") lang = s; } catch (e) {}
     if (window.LBA_LANG === "it" || window.LBA_LANG === "en") lang = window.LBA_LANG;
@@ -949,6 +1024,16 @@ class Component extends DCLogic {
   }
 
   componentDidUpdate() { this.hydratePhotos(); }
+  carStep(ev, dir) {
+    if (ev) ev.preventDefault();
+    const w = ev && ev.currentTarget && ev.currentTarget.closest(".carw");
+    const tr = w && w.querySelector(".car");
+    if (!tr) return;
+    const n = tr.children.length, i = Math.round(tr.scrollLeft / tr.clientWidth);
+    const nx = (i + dir + n) % n;
+    tr.scrollTo({ left: nx * tr.clientWidth, behavior: "smooth" });
+    w._pause = Date.now();
+  }
   hydratePhotos() {
     document.querySelectorAll("img[data-photo]").forEach((el) => {
       const src = el.getAttribute("data-photo");
@@ -1107,6 +1192,9 @@ class Component extends DCLogic {
           meta: L(r, "meta") || "",
           body: L(r, "body"),
           photo: r.photo || "",
+          slides: (r.photo ? [{ src: r.photo, caption: L(r, "caption") || "" }] : []).concat((r.photos || []).map((q) => ({ src: q.src, caption: L(q, "caption") || "" }))),
+          multi: ((r.photo ? 1 : 0) + (r.photos || []).length) > 1,
+          single: !!r.photo && !((r.photos || []).length),
           caption: L(r, "caption") || "",
           linkUrl: r.linkUrl || "",
           linkLabel: L(r, "linkLabel") || ""
@@ -1138,6 +1226,15 @@ class Component extends DCLogic {
         event: (!it && k.event_en) ? k.event_en : k.event
       })) : [],
       mapClear: () => this.setState({ mapCity: null }),
+      events: (D.events || []).map((e) => ({
+        title: e.title, dates: L(e, "dates"), place: L(e, "place"), kind: L(e, "kind"), role: L(e, "role"),
+        keynotes: e.keynotes || "", body: L(e, "body"),
+        slides: (e.photos || []).map((q) => ({ src: q.src, caption: L(q, "caption") || "" })),
+        docs: (e.docs || []).map((d) => ({ href: d.href, label: L(d, "label") }))
+      })),
+      evTitle: it ? "Convegni organizzati" : "Conference organisation",
+      keynoteLbl: it ? "Keynote" : "Keynote speakers",
+      carPrev: (ev) => this.carStep(ev, -1), carNext: (ev) => this.carStep(ev, 1),
       projects: D.projects.map((x) => ({
         name: x.name, url: x.url, kind: L(x, "kind"), body: L(x, "body"),
         host: String(x.url).replace(/^https?:\/\//, "").replace(/\/$/, "")
