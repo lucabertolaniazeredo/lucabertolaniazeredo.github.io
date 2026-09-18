@@ -15,6 +15,9 @@
 
 <link rel="icon" href="favicon.svg?v=lba2" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=lba2" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon-48.png?v=lba2" sizes="48x48" type="image/png">
+<link rel="icon" href="icon-192.png?v=lba2" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=lba2">
 
 <meta property="og:type" content="profile">
@@ -22,9 +25,7 @@
 <meta property="og:url" content="https://lucabertolaniazeredo.com/">
 <meta property="og:title" content="Luca Bertolani Azeredo — Historian of Political Violence">
 <meta property="og:description" content="Political violence and paramilitarism in Ireland, 1909–1916. Italians in Ireland from the nineteenth century to today. PhD, Scuola Superiore Meridionale.">
-<meta property="og:image" content="https://lucabertolaniazeredo.com/share.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://lucabertolaniazeredo.com/img/ritratto.jpg">
 <meta property="og:image:alt" content="Luca Bertolani Azeredo, historian of political violence">
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="it_IT">
@@ -34,7 +35,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Luca Bertolani Azeredo — Historian of Political Violence">
 <meta name="twitter:description" content="Political violence and paramilitarism in Ireland, 1909–1916. Italians in Ireland from the nineteenth century to today.">
-<meta name="twitter:image" content="https://lucabertolaniazeredo.com/share.jpg">
+<meta name="twitter:image" content="https://lucabertolaniazeredo.com/img/ritratto.jpg">
 <meta name="twitter:image:alt" content="Luca Bertolani Azeredo, historian of political violence">
 
 <script type="application/ld+json">
@@ -506,8 +507,32 @@
   .rblock figure, .teach figure, .ev-body .carw { margin-right:10px; margin-bottom:10px; }
   .tph { margin:14px 0 4px; max-width:calc(100% - 8px); }
   .tph img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; box-shadow:8px 8px 0 var(--red); }
+
+  /* v9: frame D = red caption bar under photos */
+  .ph, .carw, .rblock figure > img, .teach figure > img, .pic, .tph img { box-shadow:none !important; }
+  .rblock figure, .teach figure, .ev-body .carw { margin-right:0; margin-bottom:0; }
+  .tph { max-width:100%; }
+  figcaption, .slide figcaption { position:static !important; margin:0 !important; background:var(--red) !important; color:#fff !important; font-size:13px !important; line-height:1.4; padding:8px 12px !important; }
+  .slide { display:flex; flex-direction:column; }
+  .cb { top:calc(50% - 18px); }
+
+  /* v10: smaller side waves, smaller mobile type */
+  :root { --gut:13vw; }
+  .fw-l { height:88vh; left:calc(var(--gut) + 54px - 56.9vh); }
+  .fw-r { width:115vh; right:calc(var(--gut) + 54px - 90.5vh); }
+  @media (max-width:760px) {
+    :root { --gut:8vw; }
+    .site { font-size:14.5px; }
+    .lede, .intro { font-size:15.5px; }
+    .t { font-size:15.5px; } .v, .abs { font-size:13.5px; }
+    .feat h3, .ev-head h3 { font-size:21px; }
+    .strands h3, .area-head h2 { font-size:22px; }
+    .ptitle { font-size:30px; } .h2s { font-size:20px; }
+    .name { font-size:clamp(16px,5.2vw,26px); }
+    .kick { font-size:10.5px; }
+  }
 </style>
-<script src="site-data.js?v=2026-09-18f"></script>
+<script src="site-data.js?v=2026-09-18g"></script>
 </helmet>
 
 <div class="site">
@@ -733,7 +758,7 @@
                   <p class="v">{{ k.event }} — {{ k.place }}</p>
                 </sc-if>
                 <sc-if value="{{ k.photo }}" hint-placeholder-val="{{ false }}">
-                  <figure class="tph"><img class="washed" data-photo="{{ k.photo }}" alt="{{ k.title }}" loading="lazy" style="object-position:{{ k.photoPos }}"></figure>
+                  <figure class="tph"><img class="washed" data-photo="{{ k.photo }}" alt="{{ k.title }}" loading="lazy" style="object-position:{{ k.photoPos }}"><figcaption>{{ k.event }} — {{ k.place }}</figcaption></figure>
                 </sc-if>
               </div>
             </article>
