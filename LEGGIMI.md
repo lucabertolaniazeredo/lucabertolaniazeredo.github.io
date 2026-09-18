@@ -69,7 +69,7 @@ norma non c'è bisogno di toccarli, ma è utile sapere che ci sono e perché.
 
 | File / cartella | A cosa serve |
 | --- | --- |
-| `fonts/` | I caratteri Figtree e Caprasimo ospitati qui, non più caricati da Google. Serve a non trasmettere l'IP dei visitatori a terzi (GDPR) e a non dipendere da un servizio esterno |
+| `fonts/` | I caratteri HK Grotesk e Halant (brand LBA) ospitati qui, non più caricati da Google. Serve a non trasmettere l'IP dei visitatori a terzi (GDPR) e a non dipendere da un servizio esterno |
 | `vendor/` | Le librerie React e Babel, per la stessa ragione |
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` | L'icona del sito nella scheda del browser e sulla schermata home dei telefoni |
 | `share.jpg` | L'anteprima che compare quando il link viene mandato per email, WhatsApp, LinkedIn o Bluesky |
@@ -156,3 +156,19 @@ con l'indirizzo completo del profilo.
 - Se cambi indirizzo (dominio proprio), vanno aggiornati: `link rel="canonical"`
   e i tag `og:` in `index.html`, `robots.txt`, `sitemap.xml`, `privacy.html` e
   `tools/build-seo.js` (costante `SITE`).
+
+## Grafica (brand LBA, settembre 2026)
+
+Il sito usa il brand LBA: rosso `#a31c1c`, titoli in Halant, testo in HK Grotesk, onde rosse e bianche.
+Le immagini del brand stanno in `img/brand/` (monogramma e onde, anche in versione bianca). Regole: il
+lato piatto delle onde sta sempre fuori dal bordo; le onde rosse non toccano i blocchi rossi e non passano
+mai sul testo; sui blocchi rossi le onde sono bianche piene. La versione precedente di `index.html` è in
+`index.html.pre-lba`.
+
+## Procedura rapida per aggiornare i contenuti (settembre 2026)
+
+1. Apri `site-data.js` con VS Code o Notepad++ e modifica/aggiungi la voce (copia una voce esistente come modello).
+2. In `index.html` cerca `site-data.js?v=` e cambia il valore dopo `v=` (per esempio la data di oggi): così i browser non usano la copia vecchia.
+3. Dalla cartella del sito lancia `node tools/build-seo.js` (anteprime link e motori di ricerca). Se hai aggiunto pubblicazioni o interventi, lancia anche `node tools/check-cv.js`.
+4. Controlla in anteprima: `python -m http.server 8000` nella cartella, poi http://localhost:8000.
+5. GitHub Desktop: messaggio di commit, poi *Push origin*. Il sito si aggiorna in circa un minuto.

@@ -5,52 +5,41 @@
      predefiniti, senza intestazioni), salvando in cv/luca-bertolani-azeredo-cv.pdf. -->
 <link rel="stylesheet" href="../fonts/fonts.css">
 <style>
-@page { size: A4; margin: 15mm 0 14mm 0; }
-@page :first { margin-top: 0; }
+@page { size: A4; margin: 17mm 16mm 15mm 16mm; }
 * { box-sizing:border-box; }
-html, body { margin:0; }
-body { padding:0 16mm; font-family:'HK Grotesk',system-ui,sans-serif; font-size:9.3pt; line-height:1.45; color:#141111; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
-a { color:#a31c1c; text-decoration:none; }
-.band { position:relative; overflow:hidden; background:#a31c1c; color:#fff; margin:0 -16mm 4mm; padding:13mm 30mm 11mm; text-align:center; }
-.band .wl { position:absolute; left:-34mm; top:50%; height:78mm; transform:translateY(-50%) scaleX(-1); }
-.band .wr { position:absolute; right:-52mm; top:50%; width:92mm; transform:translateY(-50%) rotate(125deg); }
-.band > *:not(img) { position:relative; }
-.band a { color:#fff; }
-.name { font-family:'Halant',Georgia,serif; font-weight:700; font-size:27pt; line-height:1.02; margin:0 0 5px; }
-.role { font-size:10.5pt; font-weight:600; margin:0 0 8px; }
-.contact { font-size:8.7pt; margin:0 0 3px; }
-.contact span + span::before { content:" · "; opacity:.75; }
-.rule { display:none; }
-h2 { font-family:'Halant',Georgia,serif; font-size:12.5pt; font-weight:700; margin:15px 0 7px; break-after:avoid; }
-h2 > .pl8 { display:inline; }
-h2 { display:table; background:#a31c1c; color:#fff; padding:2.5pt 7pt 0.5pt; }
+body { margin:0; font-family:'Figtree',system-ui,sans-serif; font-size:9.4pt; line-height:1.45; color:#201e1d; }
+a { color:#8c491a; text-decoration:none; }
+.name { font-family:'Caprasimo',serif; font-weight:400; font-size:25pt; line-height:1.02; letter-spacing:-.015em; margin:0 0 4px; }
+.role { font-size:10.5pt; color:#8c491a; font-weight:600; margin:0 0 8px; }
+.contact { font-size:8.7pt; color:#5b5348; margin:0 0 3px; }
+.contact span + span::before { content:" · "; color:#b3a894; }
+.rule { border:0; border-top:1.6px solid #c67139; margin:12px 0 0; }
+h2 { font-size:8.4pt; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8c491a;
+     margin:15px 0 6px; padding-bottom:3px; border-bottom:.6px solid #ddd0b8; break-after:avoid; }
+h2:first-of-type { margin-top:13px; }
 .entry { display:flex; gap:10px; margin-bottom:8px; break-inside:avoid; }
-.per { flex:0 0 62px; font-size:8.6pt; font-weight:700; color:#a31c1c; padding-top:1px; }
+.per { flex:0 0 62px; font-size:8.6pt; font-weight:700; color:#6f665a; padding-top:1px; }
 .bod { flex:1; }
 .ti { font-weight:700; }
-.pl { color:#141111; }
-.de { color:#534b49; font-size:8.9pt; display:block; }
+.pl { color:#3a3632; }
+.de { color:#5b5348; font-size:8.9pt; display:block; }
 ol.pubs { margin:0 0 2px; padding:0; list-style:none; }
 ol.pubs li { margin:0 0 6px; padding-left:36px; text-indent:-36px; break-inside:avoid; }
-.yr { display:inline-block; width:36px; text-indent:0; font-weight:700; color:#a31c1c; font-size:8.6pt; }
-.t { font-weight:700; } .doi { color:#a31c1c; font-size:8.5pt; }
+.yr { display:inline-block; width:36px; text-indent:0; font-weight:700; color:#6f665a; font-size:8.6pt; }
+.t { font-weight:700; } .doi { color:#8c491a; font-size:8.5pt; }
 ul.talks { margin:0; padding:0; list-style:none; }
-ul.talks li { margin:0 0 5px; padding-left:120px; text-indent:-120px; break-inside:avoid; font-size:9.1pt; }
-.tdate { display:inline-block; width:116px; text-indent:0; font-weight:700; color:#a31c1c; font-size:8.5pt; white-space:nowrap; }
-.amt { float:right; font-weight:700; color:#141111; }
+ul.talks li { margin:0 0 5px; padding-left:96px; text-indent:-96px; break-inside:avoid; font-size:9.1pt; }
+.tdate { display:inline-block; width:92px; text-indent:0; font-weight:700; color:#6f665a; font-size:8.5pt; }
+.amt { float:right; font-weight:700; color:#56633f; }
 .two { display:flex; gap:22px; } .two > div { flex:1; }
-p.plain { margin:0 0 6px; color:#141111; }
-.small { font-size:8.5pt; color:#534b49; }
-h3, .sub3 { color:#534b49; }
-footer { margin-top:16px; padding-top:7px; border-top:.6px solid #ddd7d4; font-size:7.8pt; color:#534b49; }
-.tsub { font-size:8.4pt; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#a31c1c; margin:10px 0 5px; break-after:avoid; }
+p.plain { margin:0 0 6px; color:#3a3632; }
+.small { font-size:8.5pt; color:#6f665a; }
+footer { margin-top:16px; padding-top:7px; border-top:.6px solid #ddd0b8; font-size:7.8pt; color:#8a8073; }
 </style></head><body>
-<header class="band"><img class="wl" src="../img/brand/wave-corner-white.svg" alt=""><img class="wr" src="../img/brand/wave-sweep-white.svg" alt="">
 <div class="name">Luca Bertolani Azeredo</div>
 <p class="role">Historian of political violence · PhD in Global History and Governance</p>
-<p class="contact"><span>Padua, Italy</span><span><a href="mailto:luca.bertolani.azeredo@gmail.com">luca.bertolani.azeredo@gmail.com</a></span><span>ORCID <a href="https://orcid.org/0009-0002-3315-8544">0009-0002-3315-8544</a></span><span><a href="https://lucabertolaniazeredo.com/">lucabertolaniazeredo.com</a></span></p>
+<p class="contact"><span>Padua, Italy</span><span><a href="mailto:luca.bertolani.azeredo@gmail.com">luca.bertolani.azeredo@gmail.com</a></span><span>ORCID <a href="https://orcid.org/0009-0002-3315-8544">0009-0002-3315-8544</a></span><span><a href="https://lucabertolaniazeredo.github.io/">lucabertolaniazeredo.github.io</a></span></p>
 <p class="contact"><span><a href="https://scholar.google.com/citations?user=1a4JbvwAAAAJ&amp;hl=en">Google Scholar</a></span><span><a href="https://unina-it.academia.edu/LucaBertolaniAzeredo">Academia.edu</a></span><span><a href="https://bsky.app/profile/luca1994.bsky.social">Bluesky</a></span><span><a href="https://x.com/luca_b_a">X</a></span><span><a href="https://irishhistorians.ie/members/lucaba/">Irish Historians</a></span><span><a href="https://www.linkedin.com/in/luca-bertolani-azeredo-5b2255132/">LinkedIn</a></span></p>
-</header>
 <hr class="rule">
 <h2>Research interests</h2>
 <p class="plain">Political violence, paramilitarism and armed citizenship in Ireland, 1909–1916; the state and private management of violence and policing; youth organisations and the pedagogy of militarism; Italian migration to Ireland from the nineteenth century to the present; comparative and global approaches to social protest and collective violence.</p>
@@ -119,10 +108,33 @@ footer { margin-top:16px; padding-top:7px; border-top:.6px solid #ddd7d4; font-s
 <p class="small" style="margin:6px 0 5px"><strong>Blog articles</strong></p><ol class="pubs">
 <li><span class="yr">2020</span><span class="t">Come (non) si racconta una pandemia. La Spagnola nelle pagine del «Corriere della Sera»</span>, Amici di Passato e Presente, 15 giugno 2020. <span class="doi">amicidipassatoepresente.wordpress.com/2020/06/15/come-non-si-racconta-una-pandemia-la-spagnola-nelle-pagine-del-corriere-della-sera-luca-bertolani-azeredo/</span></li>
 </ol>
-<h2>Talks (26)</h2>
-<h3 class="tsub">Invited talks (3)</h3><ul class="talks"><li><span class="tdate">23 April 2026</span><span class="ti">The Pedagogy of Violence: Youth, Discipline, and Paramilitary Culture in Early 20th Century Ireland</span>. Comparative Irish Studies from Ancient Times to the Present, Jagiellonian University, Kraków.</li><li><span class="tdate">17 November 2025</span><span class="ti">The Enniskillen Horse: Illegality, Legitimacy and the Birth of Irish Paramilitarism</span>. Irish Studies Seminars, Autumn 2025, Queen’s University Belfast.</li><li><span class="tdate">14 September 2023</span><span class="ti">Italian Labour &amp; Unions in the ’70s – a Decade of Troubles</span>. Irish Labour History Society 2nd International Conference, Liberty Hall, Dublin.</li></ul>
-<h3 class="tsub">Workshops (12)</h3><ul class="talks"><li><span class="tdate">19 June 2026</span><span class="ti">“Un poco di gelato, if I may”. A New History of Italian Immigration to Ireland (1880s-1926)</span>. Association for the Study of Modern Italy, Postgraduate Summer School 2026, Department of Criminology, Cambridge.</li><li><span class="tdate">28 November 2025</span><span class="ti">“I Fought the Law, and I Won”. The United Kingdom and the Crisis of Paramilitarism, 1900-1916</span>. Engaged Citizens. Seminar PRIN 2022, University of Naples Federico II.</li><li><span class="tdate">19 September 2025</span><span class="ti">“Rebels under the Union Jack”. Reassessing Loyalist Radicalisation in the Home Rule Crisis</span>. 7th EFACIS International Postgraduate Conference, Charles University, Prague.</li><li><span class="tdate">17 June 2025</span><span class="ti">«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. PhD Workshop 2024-25, discussant Brian Hughes, Scuola Superiore Meridionale, Naples.</li><li><span class="tdate">10 December 2024</span><span class="ti">Shaping the Youth of Conflict: Religious Divides and the Foundations of Irish Paramilitary Organizations</span>. Religion, Division and Development in Ireland. 3rd CEPH Irish Research Initiative Workshop, Online.</li><li><span class="tdate">6 December 2024</span><span class="ti">Cittadini virili, armati, e patriottici? Il caso degli Young Citizen Volunteers, Belfast 1912-16</span>. Percezioni e pratiche di (in)sicurezza in Italia. PRIN 2022, University of Rome Tor Vergata.</li><li><span class="tdate">17 April 2024</span><span class="ti">“There are things stronger than Parliamentary majorities”: For a Political Use of Violence in Ireland, 1909-1916</span>. Radicalism, Radicalisation, and Deradicalisation in Ireland, Université de Lorraine, Nancy.</li><li><span class="tdate">2 April 2024</span><span class="ti">«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. Doctoral Workshop, discussants Richard English e Daniel Joseph Macarthur-Seal, Scuola Superiore Meridionale, Naples.</li><li><span class="tdate">23 September 2023</span><span class="ti">The Children of the Empire. Youth Organisations in British Ireland between Imperialism and Anti-Colonialism, 1909-1916</span>. 6th EFACIS International Postgraduate Conference, Charles University, Prague.</li><li><span class="tdate">30 May 2023</span><span class="ti">Manly Physique, Attractive Uniforms, and Drill Manoeuvres: Kids and Boys Playing with War in Pre-War Ireland</span>. Gender and Sexuality History Workshop, Easter 2023, University of Cambridge.</li><li><span class="tdate">21 March 2023</span><span class="ti">“There are illegalities that are not crimes”. An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. Global History and Governance – Research Workshop 2022-2023, Scuola Superiore Meridionale, Naples.</li><li><span class="tdate">8 November 2018</span><span class="ti">1918 – L’influenza Spagnola. Riflessione e discussione a 100 anni dalla più grande epidemia della storia</span>. Simposio Permanente della Storia, University of Padua.</li></ul>
-<h3 class="tsub">Conferences (11)</h3><ul class="talks"><li><span class="tdate">26 September 2026</span><span class="ti">‘I’m an Alien, I’m a Legal Alien. I’m an Italianman in Old Cork’: The Italian Community in Ireland 1880s-1926</span>. ACIS Midwest and South Regions Meetings, University of Notre Dame, IN.</li><li><span class="tdate">27 March 2026</span><span class="ti">Migrants in a Divided Land: Italian Communities and the Making of Modern Ireland</span>. Colloque SOFEIR “Irish Exceptionalism”, Université de Strasbourg.</li><li><span class="tdate">12 September 2025</span><span class="ti">La Dolce Vita? Story of an Italian Ice-Cream Parlour in Enniskillen</span>. 35th Irish Conference of Historians, Maynooth University.</li><li><span class="tdate">8 May 2025</span><span class="ti">Framing Military Resistance: The Press and the Irish Home Rule Crisis</span>. EFACIS Conference 2025, Åbo / Turku.</li><li><span class="tdate">20 June 2024</span><span class="ti">“No Man shall ride armed within the Realm”: The Enniskillen Horse and the Irish Home Rule Crisis</span>. ACIS MIC 2024 Conference, Mary Immaculate College, Limerick.</li><li><span class="tdate">5 June 2024</span><span class="ti">“It may be tomfoolery – but is it legal?” The Enniskillen Horse and the Irish Home Rule Crisis (1912-14)</span>. Galway Conference of Irish Studies 2024: Slow Violence X Irish Studies, University of Galway.</li><li><span class="tdate">24 August 2023</span><span class="ti">Na Fianna Éireann and the Young Citizen Volunteers</span>. EFACIS Conference 2023, Queen’s University Belfast.</li><li><span class="tdate">31 May 2023</span><span class="ti">The Balloon and the Bullet. Children and Young People in Irish Early Paramilitarism</span>. 21st International AEDEI Conference, Universitat de València.</li><li><span class="tdate">3 March 2023</span><span class="ti">Manly Physique, Attractive Uniforms, and Drill Manoeuvres. Two Case Studies in Pre-War Ireland</span>. Irish History Students’ Association 74th Annual Conference, Carlow College.</li><li><span class="tdate">29 October 2022</span><span class="ti">The Handbook of the Young Terrorist. Na Fianna Éireann and Irish Paramilitarism</span>. Economic and Social History Society of Ireland Conference, Maynooth University.</li><li><span class="tdate">24 May 2022</span><span class="ti">Il manuale del giovane terrorista. Na Fianna Éireann e il paramilitarismo irlandese</span>. Student Conference 2022 — Con quale autorità?, University of Pavia.</li></ul>
+<h2>Conference papers and invited talks (25)</h2><ul class="talks">
+<li><span class="tdate">19 June 2026</span><span class="ti">“Un poco di gelato, if I may”. A New History of Italian Immigration to Ireland (1880s-1926)</span>. Association for the Study of Modern Italy, Postgraduate Summer School 2026, Department of Criminology, Cambridge.</li>
+<li><span class="tdate">23 April 2026</span><span class="ti">The Pedagogy of Violence: Youth, Discipline, and Paramilitary Culture in Early 20th Century Ireland</span>. Comparative Irish Studies from Ancient Times to the Present, Jagiellonian University, Kraków.</li>
+<li><span class="tdate">27 March 2026</span><span class="ti">Migrants in a Divided Land: Italian Communities and the Making of Modern Ireland</span>. Colloque SOFEIR “Irish Exceptionalism”, Université de Strasbourg.</li>
+<li><span class="tdate">28 November 2025</span><span class="ti">“I Fought the Law, and I Won”. The United Kingdom and the Crisis of Paramilitarism, 1900-1916</span>. Engaged Citizens. Seminar PRIN 2022, University of Naples Federico II.</li>
+<li><span class="tdate">17 November 2025</span><span class="ti">The Enniskillen Horse: Illegality, Legitimacy and the Birth of Irish Paramilitarism</span>. Irish Studies Seminars, Autumn 2025, Queen’s University Belfast.</li>
+<li><span class="tdate">19 September 2025</span><span class="ti">“Rebels under the Union Jack”. Reassessing Loyalist Radicalisation in the Home Rule Crisis</span>. 7th EFACIS International Postgraduate Conference, Charles University, Prague.</li>
+<li><span class="tdate">12 September 2025</span><span class="ti">La Dolce Vita? Story of an Italian Ice-Cream Parlour in Enniskillen</span>. 35th Irish Conference of Historians, Maynooth University.</li>
+<li><span class="tdate">17 June 2025</span><span class="ti">«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. PhD Workshop 2024-25, discussant Brian Hughes, Scuola Superiore Meridionale, Naples.</li>
+<li><span class="tdate">8 May 2025</span><span class="ti">Framing Military Resistance: The Press and the Irish Home Rule Crisis</span>. EFACIS Conference 2025, Åbo / Turku.</li>
+<li><span class="tdate">10 December 2024</span><span class="ti">Shaping the Youth of Conflict: Religious Divides and the Foundations of Irish Paramilitary Organizations</span>. Religion, Division and Development in Ireland. 3rd CEPH Irish Research Initiative Workshop, Online.</li>
+<li><span class="tdate">6 December 2024</span><span class="ti">Cittadini virili, armati, e patriottici? Il caso degli Young Citizen Volunteers, Belfast 1912-16</span>. Percezioni e pratiche di (in)sicurezza in Italia. PRIN 2022, University of Rome Tor Vergata.</li>
+<li><span class="tdate">20 June 2024</span><span class="ti">“No Man shall ride armed within the Realm”: The Enniskillen Horse and the Irish Home Rule Crisis</span>. ACIS MIC 2024 Conference, Mary Immaculate College, Limerick.</li>
+<li><span class="tdate">5 June 2024</span><span class="ti">“It may be tomfoolery – but is it legal?” The Enniskillen Horse and the Irish Home Rule Crisis (1912-14)</span>. Galway Conference of Irish Studies 2024: Slow Violence X Irish Studies, University of Galway.</li>
+<li><span class="tdate">17 April 2024</span><span class="ti">“There are things stronger than Parliamentary majorities”: For a Political Use of Violence in Ireland, 1909-1916</span>. Radicalism, Radicalisation, and Deradicalisation in Ireland, Université de Lorraine, Nancy.</li>
+<li><span class="tdate">2 April 2024</span><span class="ti">«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. Doctoral Workshop, discussants Richard English e Daniel Joseph Macarthur-Seal, Scuola Superiore Meridionale, Naples.</li>
+<li><span class="tdate">23 September 2023</span><span class="ti">The Children of the Empire. Youth Organisations in British Ireland between Imperialism and Anti-Colonialism, 1909-1916</span>. 6th EFACIS International Postgraduate Conference, Charles University, Prague.</li>
+<li><span class="tdate">14 September 2023</span><span class="ti">Italian Labour &amp; Unions in the ’70s – a Decade of Troubles</span>. Irish Labour History Society 2nd International Conference, Liberty Hall, Dublin.</li>
+<li><span class="tdate">24 August 2023</span><span class="ti">Na Fianna Éireann and the Young Citizen Volunteers</span>. EFACIS Conference 2023, Queen’s University Belfast.</li>
+<li><span class="tdate">31 May 2023</span><span class="ti">The Balloon and the Bullet. Children and Young People in Irish Early Paramilitarism</span>. 21st International AEDEI Conference, Universitat de València.</li>
+<li><span class="tdate">30 May 2023</span><span class="ti">Manly Physique, Attractive Uniforms, and Drill Manoeuvres: Kids and Boys Playing with War in Pre-War Ireland</span>. Gender and Sexuality History Workshop, Easter 2023, University of Cambridge.</li>
+<li><span class="tdate">21 March 2023</span><span class="ti">“There are illegalities that are not crimes”. An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War</span>. Global History and Governance – Research Workshop 2022-2023, Scuola Superiore Meridionale, Naples.</li>
+<li><span class="tdate">3 March 2023</span><span class="ti">Manly Physique, Attractive Uniforms, and Drill Manoeuvres. Two Case Studies in Pre-War Ireland</span>. Irish History Students’ Association 74th Annual Conference, Carlow College.</li>
+<li><span class="tdate">29 October 2022</span><span class="ti">The Handbook of the Young Terrorist. Na Fianna Éireann and Irish Paramilitarism</span>. Economic and Social History Society of Ireland Conference, Maynooth University.</li>
+<li><span class="tdate">24 May 2022</span><span class="ti">Il manuale del giovane terrorista. Na Fianna Éireann e il paramilitarismo irlandese</span>. Student Conference 2022 — Con quale autorità?, University of Pavia.</li>
+<li><span class="tdate">8 November 2018</span><span class="ti">1918 – L’influenza Spagnola. Riflessione e discussione a 100 anni dalla più grande epidemia della storia</span>. Simposio Permanente della Storia, University of Padua.</li>
+</ul>
 <h2>Grants and awards</h2>
 <div class="entry"><div class="per">2026</div><div class="bod">Association for the Study of Modern Italy (ASMI)<span class="amt">£ 200</span></div></div>
 <div class="entry"><div class="per">2025</div><div class="bod">European Federation of Associations and Centres of Irish Studies (EFACIS)<span class="amt">€ 400</span></div></div>
@@ -144,4 +156,4 @@ footer { margin-top:16px; padding-top:7px; border-top:.6px solid #ddd7d4; font-s
 <p class="plain">Italian Association for Public History (IAPH) · European Federation of Associations and Centres of Irish Studies (EFACIS) · Irish Labour History Society (ILHS) · Società Italiana per lo Studio della Storia Contemporanea (SISSCO)</p>
 <h2>Languages and skills</h2>
 <div class="two"><div><p class="plain"><strong>Languages.</strong> Italian (native); English (C1, IELTS); French (good passive knowledge of sources).</p></div><div><p class="plain"><strong>Digital.</strong> Zotero, Nodegoat, Obsidian, QGIS.</p></div></div>
-<footer>Luca Bertolani Azeredo — Curriculum Vitae · updated 16 September 2026 · lucabertolaniazeredo.com</footer></body></html>
+<footer>Luca Bertolani Azeredo — Curriculum Vitae · updated 16 September 2026 · lucabertolaniazeredo.github.io</footer></body></html>
