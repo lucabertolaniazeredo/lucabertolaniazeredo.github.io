@@ -2,8 +2,4 @@
 User-agent: *
 Allow: /
 
-# I crawler AI generativi: rimuovere le due righe seguenti per consentirne l'accesso.
-User-agent: GPTBot
-Disallow: /
-
 Sitemap: https://lucabertolaniazeredo.com/sitemap.xml

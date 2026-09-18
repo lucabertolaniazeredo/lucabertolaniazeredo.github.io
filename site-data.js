@@ -50,13 +50,13 @@ window.SITE_DATA = {
   researchAreas: [
     {
       id: "ireland",
-      kicker_it: "Filone principale", kicker_en: "Main strand",
+      kicker_it: "Primo filone", kicker_en: "First strand",
       title: "Ireland and Political Violence",
       lede_it: "Come nasce, si organizza e si legittima la violenza politica nell\u2019Irlanda che precede la rivoluzione, e che cosa rende accettabile un cittadino armato agli occhi dello Stato.",
       lede_en: "How political violence emerged, organised itself and acquired legitimacy in the Ireland that preceded the revolution, and what made an armed citizen acceptable in the eyes of the state.",
       blocks: [
         {
-          kicker_it: "Primo filone", kicker_en: "First strand",
+          kicker_it: "Il tema", kicker_en: "The theme",
           title_it: "Violenza politica e paramilitarismo in Irlanda, 1909\u20131916",
           title_en: "Political violence and paramilitarism in Ireland, 1909\u20131916",
           body_it: "La ricerca indaga i corpi paramilitari irlandesi nel decennio che precede la Grande Guerra: come si armano, come si addestrano, come costruiscono la propria legittimit\u00e0 in uno spazio dove \u2014 secondo la formula che d\u00e0 il titolo alla tesi \u2014 \u00abesistono illegalit\u00e0 che non sono reati\u00bb. Il lavoro attraversa nazionalismo e unionismo, guardando alle organizzazioni giovanili, alla disciplina dei corpi, alla stampa e al modo in cui lo Stato britannico sceglie di non intervenire.",
@@ -310,7 +310,7 @@ window.SITE_DATA = {
     { date: "2024-04-17", kind: "workshop", city: "Nancy", city_en: "Nancy", lat: 48.6921, lon: 6.1844, title: "“There are things stronger than Parliamentary majorities”: For a Political Use of Violence in Ireland, 1909-1916", event: "Radicalism, Radicalisation, and Deradicalisation in Ireland", place: "Université de Lorraine, Nancy",
       abstract_it: "Con la conclusione del Decade of Remembrance uno dei compiti della storiografia irlandese è allargare i limiti che si era imposta: la «rivoluzione» va analizzata considerandone cause e conseguenze in profondità. Il paper discute le radici storiche e culturali di uno dei suoi pilastri, il paramilitarismo e l'uso politico della violenza nella crisi della Terza Home Rule. Prima della nascita delle grandi organizzazioni di massa, il paramilitarismo e i gruppi di volontari armati erano da tempo radicati nella società irlandese e britannica: la liberalizzazione del possesso — e dell'uso — delle armi, la militarizzazione della società e la radicalizzazione della politica portarono ad accettare la violenza, o la sua minaccia, come strumento legittimo. Quattro casi di studio sostengono l'argomento: Na Fianna Éireann e gli Young Citizen Volunteers, organizzazioni giovanili nate a Dublino e Belfast fra il 1909 e il 1912 come reazione e controreazione ai movimenti in uniforme dedicati all'educazione e all'addestramento dei ragazzi; l'unionista Enniskillen Horse, costituito nel 1912 in Fermanagh; e l'Irish Citizen Army, gruppo di autodifesa operaio dublinese.",
       abstract_en: "With the conclusion of the Decade of Remembrance, one of the tasks of Irish historiography is to expand the limits it had imposed on itself: the 'revolution' must be analysed with deeper attention to its causes and consequences. This paper discusses the historical and cultural roots of one of its cornerstones, paramilitarism and the political use of violence in the Third Home Rule Crisis. Before the establishment of the main mass organisations, paramilitarism and citizen volunteer groups had long been established in both Irish and British society: the liberalisation of the possession — and use — of guns, the militarisation of society and the radicalisation of politics all led to the acceptance of violence, or its threat, as a rightful instrument. Four case studies support the argument: Na Fianna Éireann and the Young Citizen Volunteers, youth organisations established in Dublin and Belfast between 1909 and 1912 as reaction and counter-reaction to the uniformed movements devoted to the education and drilling of boys; the unionist Enniskillen Horse, established in Fermanagh in 1912; and the Irish Citizen Army, the Dublin labour group of self-defence." },
-    { date: "2024-04-02", kind: "workshop", city: "Napoli", city_en: "Naples", lat: 40.8518, lon: 14.2681, title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Doctoral Workshop, discussants Richard English e Daniel Joseph Macarthur-Seal", place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples",
+    { date: "2024-04-02", kind: "workshop", city: "Napoli", city_en: "Naples", lat: 40.8518, lon: 14.2681, title: "«There are illegalities that are not crimes». An Investigation into Political Violence and Paramilitary Bodies in Ireland before the Great War", event: "Doctoral Workshop, discussants Richard English, Daniel Joseph Macarthur-Seal", place: "Scuola Superiore Meridionale, Napoli", place_en: "Scuola Superiore Meridionale, Naples",
       abstract_it: "Presentazione intermedia della ricerca dottorale al workshop del dottorato, con la discussione di Richard English e Daniel Joseph Macarthur-Seal. L'intervento ha esposto l'impianto della tesi — le origini della violenza politica e del volontarismo armato in Irlanda e Gran Bretagna nei primi anni della crisi della Terza Home Rule — e la scelta di ricostruire quattro organizzazioni poco studiate che precedono l'Ulster Volunteer Force e gli Irish Volunteers, insieme al problema del confine mobile fra associazionismo lecito e mobilitazione armata.",
       abstract_en: "An interim presentation of the doctoral research at the doctoral workshop, with Richard English and Daniel Joseph Macarthur-Seal as discussants. The paper set out the framework of the dissertation — the origins of political violence and armed voluntarism in Ireland and Great Britain in the early years of the Third Home Rule Crisis — and the decision to reconstruct four underexplored organisations predating the Ulster Volunteer Force and the Irish Volunteers, together with the problem of the shifting boundary between lawful associational life and armed mobilisation." },
     { date: "2023-09-23", kind: "workshop", city: "Praga", city_en: "Prague", lat: 50.0755, lon: 14.4378, title: "The Children of the Empire. Youth Organisations in British Ireland between Imperialism and Anti-Colonialism, 1909-1916", event: "6th EFACIS International Postgraduate Conference", place: "Charles University, Praga", place_en: "Charles University, Prague",
@@ -353,7 +353,7 @@ window.SITE_DATA = {
       course_it: "Lezione nel corso di Storia del Novecento",
       course_en: "Guest lecture, Storia del Novecento",
       courseHost_it: "Corso di laurea magistrale in Scienze storiche, Universit\u00e0 di Padova",
-      courseHost_en: "MA in Historical Science, University of Padua",
+      courseHost_en: "MA in Historical Sciences, University of Padua",
       courseUrl: "https://www.dissgea.unipd.it/didattica/corsi-di-studio/corso-di-laurea-magistrale-scienze-storiche",
       teacher: { name: "Giovanni Focardi", url: "https://www.unipd.it/contatti/giovanni.focardi" },
       photo: "img/lezione-padova.jpg"
@@ -423,7 +423,7 @@ window.SITE_DATA = {
       },
       {
         period: "2017\u20132020",
-        title_it: "Laurea magistrale in Scienze storiche", title_en: "MA in Historical Science",
+        title_it: "Laurea magistrale in Scienze storiche", title_en: "MA in Historical Sciences",
         place: "Universit\u00e0 degli Studi di Padova", place_en: "University of Padua",
         placeUrl: "https://www.unipd.it/",
         note_it: "110 e lode.", note_en: "110 cum laude, first class honours.",
@@ -492,11 +492,11 @@ window.SITE_DATA = {
 
     /* amount: importo assegnato, come compare nel CV */
     grants: [
-      { year: "2026", body_it: "Association for the Study of Modern Italy (ASMI)", body_en: "Association for the Study of Modern Italy (ASMI)", url: "https://www.asmi.org.uk/", amount: "\u00a3 200" },
-      { year: "2025", body_it: "European Federation of Associations and Centres of Irish Studies (EFACIS)", body_en: "European Federation of Associations and Centres of Irish Studies (EFACIS)", url: "https://www.efacis.eu/", amount: "\u20ac 400" },
-      { year: "2025", body_it: "Irish Committee for Historical Sciences", body_en: "Irish Committee for Historical Sciences", url: "https://irishhistoricalsciences.ie/", amount: "\u20ac 256" },
-      { year: "2023", body_it: "Irish Labour History Society", body_en: "Irish Labour History Society", url: "https://www.irishlabourhistorysociety.com/", amount: "\u20ac 110,33" },
-      { year: "2021\u20132025", body_it: "Borsa di dottorato, Scuola Superiore Meridionale", body_en: "Doctoral scholarship, Scuola Superiore Meridionale", url: "https://www.ssm.unina.it/", amount: "\u20ac 88.700" }
+      { year: "2026", body_it: "Association for the Study of Modern Italy (ASMI)", body_en: "Association for the Study of Modern Italy (ASMI)", url: "https://www.asmi.org.uk/", amount: "\u00a3 200", amount_en: "\u00a3200" },
+      { year: "2025", body_it: "European Federation of Associations and Centres of Irish Studies (EFACIS)", body_en: "European Federation of Associations and Centres of Irish Studies (EFACIS)", url: "https://www.efacis.eu/", amount: "\u20ac 400", amount_en: "\u20ac400" },
+      { year: "2025", body_it: "Irish Committee for Historical Sciences", body_en: "Irish Committee for Historical Sciences", url: "https://irishhistoricalsciences.ie/", amount: "\u20ac 256", amount_en: "\u20ac256" },
+      { year: "2023", body_it: "Irish Labour History Society", body_en: "Irish Labour History Society", url: "https://www.irishlabourhistorysociety.com/", amount: "\u20ac 110,33", amount_en: "\u20ac110.33" },
+      { year: "2021\u20132025", body_it: "Borsa di dottorato interamente finanziata, Scuola Superiore Meridionale", body_en: "Fully funded doctoral scholarship, Scuola Superiore Meridionale", url: "https://www.ssm.unina.it/", amount: "" }
     ]
   }
 };
