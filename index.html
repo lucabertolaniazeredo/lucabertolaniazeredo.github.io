@@ -499,8 +499,15 @@
   .ev-body { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,420px); gap:28px; border:1px solid var(--rule); border-top:0; }
   .docs { display:flex; flex-wrap:wrap; gap:8px; }
   @media (max-width:1180px) { .ev-body { grid-template-columns:1fr; } }
+
+  /* v8: photo frame = offset red block (like the title plates), no waves */
+  .ph, .carw, .rblock figure > img, .teach figure > img, .pic { box-shadow:10px 10px 0 var(--red); }
+  .ph { overflow:visible; }
+  .rblock figure, .teach figure, .ev-body .carw { margin-right:10px; margin-bottom:10px; }
+  .tph { margin:14px 0 4px; max-width:calc(100% - 8px); }
+  .tph img { width:100%; aspect-ratio:3/2; object-fit:cover; display:block; box-shadow:8px 8px 0 var(--red); }
 </style>
-<script src="site-data.js?v=2026-09-18e"></script>
+<script src="site-data.js?v=2026-09-18f"></script>
 </helmet>
 
 <div class="site">
@@ -537,7 +544,7 @@
               <a class="btn btn-o" href="#progetti" onClick="{{ goProgetti }}">{{ t.ctaProjects }}</a>
             </div>
           </div>
-          <div class="pic ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt=""><img class="portrait" src="img/ritratto.jpg" alt="Luca Bertolani Azeredo"></div>
+          <div class="pic ph"><img class="portrait" src="img/ritratto.jpg" alt="Luca Bertolani Azeredo"></div>
         </div>
       </section>
 
@@ -610,18 +617,16 @@
                     </sc-if>
                   </div>
                   <sc-if value="{{ r.multi }}" hint-placeholder-val="{{ false }}">
-                    <div><div class="carw ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
-                        <div class="car">
+                    <div><div class="carw ph"><div class="car">
                           <sc-for list="{{ r.slides }}" as="sl" hint-placeholder-count="3">
-                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy"><figcaption>{{ sl.caption }}</figcaption></figure>
+                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy" style="object-position:{{ sl.pos }}"><figcaption>{{ sl.caption }}</figcaption></figure>
                           </sc-for>
                         </div>
                         <button class="cb cb-p" onClick="{{ carPrev }}" aria-label="Previous">‹</button><button class="cb cb-n" onClick="{{ carNext }}" aria-label="Next">›</button>
                       </div></div>
                   </sc-if>
                   <sc-if value="{{ r.single }}" hint-placeholder-val="{{ false }}"><figure>
-                      <div class="ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
-                      <img class="washed" data-photo="{{ r.photo }}" alt="{{ r.caption }}" loading="lazy"></div>
+                      <div class="ph"><img class="washed" data-photo="{{ r.photo }}" alt="{{ r.caption }}" loading="lazy"></div>
                       <figcaption>{{ r.caption }}</figcaption>
                     </figure>
                   </sc-if>
@@ -727,6 +732,9 @@
                   <h2 class="t">{{ k.title }}</h2>
                   <p class="v">{{ k.event }} — {{ k.place }}</p>
                 </sc-if>
+                <sc-if value="{{ k.photo }}" hint-placeholder-val="{{ false }}">
+                  <figure class="tph"><img class="washed" data-photo="{{ k.photo }}" alt="{{ k.title }}" loading="lazy" style="object-position:{{ k.photoPos }}"></figure>
+                </sc-if>
               </div>
             </article>
           </sc-for>
@@ -747,7 +755,7 @@
                 <p style="margin:0"><a href="{{ c.courseUrl }}" target="_blank" rel="noopener">{{ c.courseHost }}</a></p>
               </div>
               <sc-if value="{{ c.photo }}" hint-placeholder-val="{{ true }}">
-                <figure class="ph" style="margin:0"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt=""><img class="washed" data-photo="{{ c.photo }}" alt="{{ c.photoAlt }}" loading="lazy"></figure>
+                <figure class="ph" style="margin:0"><img class="washed" data-photo="{{ c.photo }}" alt="{{ c.photoAlt }}" loading="lazy"></figure>
               </sc-if>
             </article>
           </sc-for>
@@ -795,10 +803,9 @@
                 </sc-for>
               </div>
             </div>
-            <div class="carw ph"><img class="pw pw-tl" src="img/brand/wave-corner.svg" alt=""><img class="pw pw-br" src="img/brand/wave-sweep.svg" alt="">
-                        <div class="car">
+            <div class="carw ph"><div class="car">
                           <sc-for list="{{ e.slides }}" as="sl" hint-placeholder-count="3">
-                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy"><figcaption>{{ sl.caption }}</figcaption></figure>
+                            <figure class="slide"><img class="washed" data-photo="{{ sl.src }}" alt="{{ sl.caption }}" loading="lazy" style="object-position:{{ sl.pos }}"><figcaption>{{ sl.caption }}</figcaption></figure>
                           </sc-for>
                         </div>
                         <button class="cb cb-p" onClick="{{ carPrev }}" aria-label="Previous">‹</button><button class="cb cb-n" onClick="{{ carNext }}" aria-label="Next">›</button>
@@ -1097,6 +1104,7 @@ class Component extends DCLogic {
         place: (!it && k.place_en) ? k.place_en : k.place,
         dateLabel: this.fmtDate(k.date, t, false),
         kindLabel: (t.kinds && t.kinds[k.kind]) || "",
+        photoPos: k.photoPos || "50% 50%",
         abstract,
         hasAbstract: !!abstract,
         noAbstract: !abstract,
@@ -1192,7 +1200,7 @@ class Component extends DCLogic {
           meta: L(r, "meta") || "",
           body: L(r, "body"),
           photo: r.photo || "",
-          slides: (r.photo ? [{ src: r.photo, caption: L(r, "caption") || "" }] : []).concat((r.photos || []).map((q) => ({ src: q.src, caption: L(q, "caption") || "" }))),
+          slides: (r.photo ? [{ src: r.photo, pos: r.photoPos || "50% 50%", caption: L(r, "caption") || "" }] : []).concat((r.photos || []).map((q) => ({ src: q.src, pos: q.pos || "50% 50%", caption: L(q, "caption") || "" }))),
           multi: ((r.photo ? 1 : 0) + (r.photos || []).length) > 1,
           single: !!r.photo && !((r.photos || []).length),
           caption: L(r, "caption") || "",
@@ -1229,7 +1237,7 @@ class Component extends DCLogic {
       events: (D.events || []).map((e) => ({
         title: e.title, dates: L(e, "dates"), place: L(e, "place"), kind: L(e, "kind"), role: L(e, "role"),
         keynotes: e.keynotes || "", body: L(e, "body"),
-        slides: (e.photos || []).map((q) => ({ src: q.src, caption: L(q, "caption") || "" })),
+        slides: (e.photos || []).map((q) => ({ src: q.src, pos: q.pos || "50% 50%", caption: L(q, "caption") || "" })),
         docs: (e.docs || []).map((d) => ({ href: d.href, label: L(d, "label") }))
       })),
       evTitle: it ? "Convegni organizzati" : "Conference organisation",
