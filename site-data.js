@@ -17,7 +17,7 @@ window.SITE_DATA = {
     email: "luca.bertolani.azeredo@gmail.com",
     orcid: "0009-0002-3315-8544",
     orcidUrl: "https://orcid.org/0009-0002-3315-8544",
-    linkedin: "https://www.linkedin.com/in/luca-bertolani-azeredo-5b2255132/",
+    linkedin: "https://www.linkedin.com/in/luca-bertolani-azeredo-phd-5b2255132/",
 
     /* CV scaricabile: metti il PDF in cv/ e lascia questo percorso, oppure svuota
        la stringa per far sparire il pulsante dalla pagina CV. */
